@@ -1,0 +1,149 @@
+
+.menu {
+    display: flex;
+    justify-content: space-between; 
+ }
+ 
+ .logo{
+    height: 60px; 
+    margin-right: 10px;
+ }
+ 
+ .mrg{
+    margin-right: 8px;
+ }
+ 
+ .active-link {
+    text-decoration: underline; 
+ }
+ 
+ .pie-link {
+    color: black; 
+ }
+ 
+ .pie{
+    background-color: #86B74D; 
+    margin-top: auto;
+ }
+ 
+ .pie p {
+    display: flex;
+    justify-content: center;
+    padding: 10px 50px;
+    color: white;
+    margin: 0;   
+ }
+ 
+ .pie-link:hover{
+    color: white;
+ }
+ 
+ .pie-content{
+    padding: 20px 10px;
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: row;  
+ }
+  
+ .imag{
+    height: 100px; 
+    margin-right: 10px;
+ }
+ 
+ .col{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    align-items: center;
+ }
+ 
+ .minicol1{
+    display: flex;
+    flex-direction: row;  
+ }
+ 
+ .minicol2{
+    display: flex;
+    flex-direction: row;
+ }
+ 
+ .margin-left{
+    margin-left: 100px;
+ }
+ 
+ .mrg-but{
+    margin-right: 10%;
+ }
+ 
+ 
+ 
+ 
+ @media only screen and (max-width: 1024px) {
+ 
+    .margin-left{
+       margin-left: 0;
+    }
+ 
+    .minicol1{
+       flex-direction: column;  
+    }
+ 
+    .minicol2{
+       flex-direction: column;
+       padding-left: 150px;
+    }
+ 
+ }
+ 
+ @media only screen and (max-width: 768px) {
+ 
+    .col{
+       margin-left: 100Px;
+    }
+ 
+    .minicol2{
+       padding-left: 100px;
+    }
+ 
+ }
+ 
+ @media only screen and (max-width: 630px) {
+ 
+    .col{
+       flex-direction: column;
+       margin-left: 40px;
+       align-items: start;
+    }
+ 
+    .minicol1{
+       margin-left: 0;
+    }
+ 
+    .minicol2{
+       padding-left: 0;
+    }
+ 
+    .imag{
+       display: flex;
+       align-items: center;
+       margin-top: 25px;
+    }
+ 
+ }
+ 
+ @media only screen and (max-width: 376px) {
+    .logo{
+       height: 60px; 
+       margin-right: -5px;
+       margin-left: -10%;
+    }
+ 
+    .col{
+       margin-left: 0;
+    }
+ 
+    .mrg-but{
+       margin-right: 1%;
+    }
+ 
+ }

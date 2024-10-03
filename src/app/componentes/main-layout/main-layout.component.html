@@ -1,1 +1,55 @@
-<p>main-layout works!</p>
+<div >
+    <nav class="navbar border-bottom fixed-top navbar-expand-lg navbar-light "  style="background-color: #ffffff">
+  
+      <a class="navbar-brand" style="margin-left: 10%;" href="inicio" routerLink="/inicio">
+        <img src="assets/imagenes/logo1.jpg" alt="Logo" class="logo">
+        Arofor Uno
+      </a>
+      <button class="navbar-toggler ml-auto mrg-but" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" style="margin-right: 10%;">
+          <li class="nav-item">
+            <a class="nav-link mrg" href="piñas" routerLink="/piñas" routerLinkActive="active-link">Piñas</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link mrg" href="semillas" role="button" routerLink="/semillas" routerLinkActive="active-link">Semillas</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link mrg" href="empresa" routerLink="/empresa" routerLinkActive="active-link">Empresa</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link mrg" href="http://localhost:1337/admin" target="_blank">Administrador</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div style="margin-top: 86px;">
+    <ng-content></ng-content>
+  </div>
+  
+  <div class="pie">
+      <div class="pie-content">
+        <a class="" style="margin-left: 10%;" href="inicio" routerLink="/inicio">
+          <img src="assets/imagenes/logo.png" alt="Logo" class="imag"> 
+        </a>
+        <div class="col">
+          <div class="minicol1 margin-left">
+            <a class="nav-link mrg pie-link" href="piñas" routerLink="/piñas" >Piñas</a>
+            <a class="nav-link mrg pie-link margin-left" href="semillas" role="button" routerLink="/semillas" >Semillas</a>
+          </div>
+          <div class="minicol2 margin-left">
+            <a class="nav-link mrg pie-link" href="empresa" routerLink="/empresa" >Empresa</a>
+            <a class="nav-link mrg pie-link margin-left" href="http://localhost:1337/admin" target="_blank">Administrador</a>
+          </div>
+        </div>
+      </div>
+      <p>©María Sánchez Torrente, 2024. Todos los derechos reservados</p>
+  </div>
