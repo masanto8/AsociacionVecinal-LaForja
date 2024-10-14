@@ -1,44 +1,60 @@
+
 <div >
-    <nav class="navbar border-bottom fixed-top navbar-expand-lg navbar-light "  style="background-color: #ffffff">
+    <nav class="navbar border-bottom fixed-top navbar-expand-lg navbar-light"  style="background-color: #ffffff">
   
       <a class="navbar-brand" style="margin-left: 10%;" href="inicio" routerLink="/inicio">
-        <img src="assets/imagenes/logo1.jpg" alt="Logo" class="logo">
-        Arofor Uno
+      <img src="" alt="LogoForja" class="logo">
+        La Forja
       </a>
       <button class="navbar-toggler ml-auto mrg-but" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-right: 10%;">
           <li class="nav-item">
-            <a class="nav-link mrg" href="piñas" routerLink="/piñas" routerLinkActive="active-link">Piñas</a>
+            <a class="nav-link mrg" href="info" routerLink="/informacion" routerLinkActive="active-link">Infórmate</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link mrg" href="semillas" role="button" routerLink="/semillas" routerLinkActive="active-link">Semillas</a>
+            <a class="nav-link mrg" href="talleres" role="button" routerLink="/talleres" routerLinkActive="active-link">Talleres</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mrg" href="asociacion" routerLink="/asociacion" routerLinkActive="active-link">Asociación</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mrg" href="junta" routerLink="/junta" routerLinkActive="active-link">Junta</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link mrg" href="empresa" routerLink="/empresa" routerLinkActive="active-link">Empresa</a>
+            <a class="nav-link mrg" href="transparencia" routerLink="/transparencia" routerLinkActive="active-link">Transparencia</a>
           </li>
-  
-          <li class="nav-item">
-            <a class="nav-link mrg" href="http://localhost:1337/admin" target="_blank">Administrador</a>
-          </li>
+
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
         </ul>
       </div>
     </nav>
   </div>
+
+
+
   
   <div style="margin-top: 86px;">
     <ng-content></ng-content>
   </div>
-  
-  <div class="pie">
+
+
+
+ 
+<!-- <div class="pie">
       <div class="pie-content">
         <a class="" style="margin-left: 10%;" href="inicio" routerLink="/inicio">
-          <img src="assets/imagenes/logo.png" alt="Logo" class="imag"> 
+          <img src="" alt="Logo" class="imag"> 
         </a>
         <div class="col">
           <div class="minicol1 margin-left">
@@ -52,4 +68,4 @@
         </div>
       </div>
       <p>©María Sánchez Torrente, 2024. Todos los derechos reservados</p>
-  </div>
+  </div> -->

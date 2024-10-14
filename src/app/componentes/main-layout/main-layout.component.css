@@ -1,9 +1,4 @@
 
-.menu {
-    display: flex;
-    justify-content: space-between; 
- }
- 
  .logo{
     height: 60px; 
     margin-right: 10px;
