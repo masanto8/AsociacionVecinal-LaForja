@@ -1,5 +1,5 @@
 {
-  "name": "strapi-bbdd",
+  "name": "strapi-forja",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -11,9 +11,9 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.0.2",
-    "@strapi/plugin-users-permissions": "5.0.2",
-    "@strapi/strapi": "5.0.2",
+    "@strapi/plugin-cloud": "5.0.6",
+    "@strapi/plugin-users-permissions": "5.0.6",
+    "@strapi/strapi": "5.0.6",
     "better-sqlite3": "9.4.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -31,6 +31,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "1ae40190-063c-4847-abda-1894f29b7405"
+    "uuid": "70529ab7-e04f-413c-8adf-6ffe44761efe"
   }
 }
