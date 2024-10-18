@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "talleres",
+  "info": {
+    "singularName": "taller",
+    "pluralName": "talleres",
+    "displayName": "Talleres"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Anyo": {
+      "type": "integer",
+      "required": true
+    },
+    "Tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Pintura",
+        "Artes Plasticas",
+        "Forjando Arte"
+      ],
+      "required": true
+    },
+    "Cartel": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

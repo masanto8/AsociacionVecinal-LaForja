@@ -1,37 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
-  collectionName: 'noticias';
-  info: {
-    singularName: 'noticia';
-    pluralName: 'noticias';
-    displayName: 'Noticias';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Titulo: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    Fecha: Schema.Attribute.Date;
-    Imagen: Schema.Attribute.Media<'images' | 'files'>;
-    Contenido: Schema.Attribute.RichText & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::noticia.noticia'
-    >;
-  };
-}
-
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -517,6 +485,216 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiJuntaJunta extends Struct.CollectionTypeSchema {
+  collectionName: 'juntas';
+  info: {
+    singularName: 'junta';
+    pluralName: 'juntas';
+    displayName: 'Junta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Anyo: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Presidente: Schema.Attribute.String & Schema.Attribute.Required;
+    Vicepresidente: Schema.Attribute.String & Schema.Attribute.Required;
+    Secretaria: Schema.Attribute.String & Schema.Attribute.Required;
+    Tesoreria: Schema.Attribute.String & Schema.Attribute.Required;
+    Vocal1: Schema.Attribute.String;
+    Vocal2: Schema.Attribute.String;
+    Vocal3: Schema.Attribute.String;
+    Vocal4: Schema.Attribute.String;
+    Vocal5: Schema.Attribute.String;
+    Vocal6: Schema.Attribute.String;
+    Vocal7: Schema.Attribute.String;
+    Vocal8: Schema.Attribute.String;
+    Vocal9: Schema.Attribute.String;
+    Vocal10: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::junta.junta'>;
+  };
+}
+
+export interface ApiNovedadNovedad extends Struct.CollectionTypeSchema {
+  collectionName: 'novedades';
+  info: {
+    singularName: 'novedad';
+    pluralName: 'novedades';
+    displayName: 'Novedades';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    Multimedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Tipo: Schema.Attribute.Enumeration<
+      ['Noticia', 'Evento', 'Junta', 'Reunion']
+    > &
+      Schema.Attribute.Required;
+    Contenido: Schema.Attribute.RichText & Schema.Attribute.Required;
+    ContenidoResumido: Schema.Attribute.RichText &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 600;
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::novedad.novedad'
+    >;
+  };
+}
+
+export interface ApiSocioSocio extends Struct.CollectionTypeSchema {
+  collectionName: 'socios';
+  info: {
+    singularName: 'socio';
+    pluralName: 'socios';
+    displayName: 'Socios';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    Apellido1: Schema.Attribute.String & Schema.Attribute.Required;
+    Apellido2: Schema.Attribute.String;
+    Telefono: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::socio.socio'>;
+  };
+}
+
+export interface ApiTallerTaller extends Struct.CollectionTypeSchema {
+  collectionName: 'talleres';
+  info: {
+    singularName: 'taller';
+    pluralName: 'talleres';
+    displayName: 'Talleres';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Anyo: Schema.Attribute.Integer & Schema.Attribute.Required;
+    Tipo: Schema.Attribute.Enumeration<
+      ['Pintura', 'Artes Plasticas', 'Forjando Arte']
+    > &
+      Schema.Attribute.Required;
+    Cartel: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::taller.taller'>;
+  };
+}
+
+export interface ApiTransparenciaTransparencia
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'transparencias';
+  info: {
+    singularName: 'transparencia';
+    pluralName: 'transparencias';
+    displayName: 'Transparencia';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Anyo: Schema.Attribute.Integer & Schema.Attribute.Required;
+    InformacionEconomica: Schema.Attribute.Media<'images' | 'files', true>;
+    FuncionesNormativa: Schema.Attribute.Media<'images' | 'files', true>;
+    SubvencionesActividadesAnexoI: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoII: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoIII: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoIV: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividades: Schema.Attribute.Media<'images' | 'files', true>;
+    SubvencionesActividadesAnexoV: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoVI: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoVII: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoVIII: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoIX: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    SubvencionesActividadesAnexoX: Schema.Attribute.Media<
+      'images' | 'files',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::transparencia.transparencia'
+    >;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -882,7 +1060,6 @@ export interface AdminTransferTokenPermission
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
-      'api::noticia.noticia': ApiNoticiaNoticia;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
@@ -893,6 +1070,11 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::junta.junta': ApiJuntaJunta;
+      'api::novedad.novedad': ApiNovedadNovedad;
+      'api::socio.socio': ApiSocioSocio;
+      'api::taller.taller': ApiTallerTaller;
+      'api::transparencia.transparencia': ApiTransparenciaTransparencia;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

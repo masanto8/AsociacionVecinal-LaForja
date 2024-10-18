@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "socios",
+  "info": {
+    "singularName": "socio",
+    "pluralName": "socios",
+    "displayName": "Socios"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "Apellido1": {
+      "type": "string",
+      "required": true
+    },
+    "Apellido2": {
+      "type": "string"
+    },
+    "Telefono": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

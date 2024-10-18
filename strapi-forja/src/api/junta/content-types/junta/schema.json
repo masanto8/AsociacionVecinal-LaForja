@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "juntas",
+  "info": {
+    "singularName": "junta",
+    "pluralName": "juntas",
+    "displayName": "Junta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Anyo": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "Presidente": {
+      "type": "string",
+      "required": true
+    },
+    "Vicepresidente": {
+      "type": "string",
+      "required": true
+    },
+    "Secretaria": {
+      "type": "string",
+      "required": true
+    },
+    "Tesoreria": {
+      "type": "string",
+      "required": true
+    },
+    "Vocal1": {
+      "type": "string"
+    },
+    "Vocal2": {
+      "type": "string"
+    },
+    "Vocal3": {
+      "type": "string"
+    },
+    "Vocal4": {
+      "type": "string"
+    },
+    "Vocal5": {
+      "type": "string"
+    },
+    "Vocal6": {
+      "type": "string"
+    },
+    "Vocal7": {
+      "type": "string"
+    },
+    "Vocal8": {
+      "type": "string"
+    },
+    "Vocal9": {
+      "type": "string"
+    },
+    "Vocal10": {
+      "type": "string"
+    }
+  }
+}
