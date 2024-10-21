@@ -9,7 +9,6 @@ export default [
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
       exposedHeaders: [],
       credentials: true,
-      maxAge: 3600,
     },
   },
   'strapi::poweredBy',
