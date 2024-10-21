@@ -1,1 +1,61 @@
 <p>junta works!</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+          <th scope="col">Cargo</th>
+          <th scope="col">Nombre y Apellidos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let miembro of junta">
+            <tr>
+                <td>Presidente</td>
+                <td>{{ miembro.presidente }}</td>
+            </tr>
+            <tr>     
+                <td>Vicepresidente</td>
+                <td>{{ miembro.vicepresidente }}</td>
+            </tr>
+            <tr>
+                <td>Secretaría</td>
+                <td>{{ miembro.secretaria }}</td>
+            </tr>
+            <tr>
+                <td>Tesorería</td>
+                <td>{{ miembro.tasereria }}</td>
+            </tr>
+            <tr>
+                <td rowspan="10">Vocalías</td>
+                <td>{{ miembro.vocal1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ miembro.vocal2 }}</td>
+            </tr>
+            <tr>
+                <td>{{ miembro.vocal3 }}</td>
+            </tr>
+            <tr> 
+                <td>{{ miembro.vocal4 }}</td>
+            </tr>
+            <tr> 
+                <td>{{ miembro.vocal5 }}</td>
+            </tr>
+            <tr> 
+                <td>{{ miembro.vocal6 }}</td>
+            </tr>
+            <tr>
+                <td>{{ miembro.vocal7 }}</td>
+            </tr>
+            <tr>
+                <td>{{ miembro.vocal8 }}</td>
+            </tr>
+            <tr>
+                <td>{{ miembro.vocal9 }}</td>
+            </tr>
+            <tr>
+                <td>{{ miembro.vocal10 }}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
