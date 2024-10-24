@@ -4,7 +4,8 @@
   "info": {
     "singularName": "taller",
     "pluralName": "talleres",
-    "displayName": "Talleres"
+    "displayName": "Talleres",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,22 +16,17 @@
       "type": "integer",
       "required": true
     },
-    "Tipo": {
-      "type": "enumeration",
-      "enum": [
-        "Pintura",
-        "Artes Plasticas",
-        "Forjando Arte"
-      ],
-      "required": true
-    },
     "Cartel": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true,
+      ]
+    },
+    "NombreTaller": {
+      "type": "string",
       "required": true
     }
   }

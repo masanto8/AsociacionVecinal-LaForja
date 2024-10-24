@@ -599,18 +599,16 @@ export interface ApiTallerTaller extends Struct.CollectionTypeSchema {
     singularName: 'taller';
     pluralName: 'talleres';
     displayName: 'Talleres';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     Anyo: Schema.Attribute.Integer & Schema.Attribute.Required;
-    Tipo: Schema.Attribute.Enumeration<
-      ['Pintura', 'Artes Plasticas', 'Forjando Arte']
-    > &
-      Schema.Attribute.Required;
     Cartel: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
+    NombreTaller: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
