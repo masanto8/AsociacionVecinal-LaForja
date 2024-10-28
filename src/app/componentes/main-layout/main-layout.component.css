@@ -1,7 +1,37 @@
+html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+ }
+ 
+.main{
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+.body{
+   margin-top: 86px;
+   flex: 1; 
+}
+
+.color-bar {
+   background-color: black; 
+}
+
+.letter-bar {
+   color: white; 
+}
 
  .logo{
     height: 60px; 
     margin-right: 10px;
+ }
+
+ .nav-link{
+   color: white;
  }
  
  .mrg{
@@ -10,6 +40,7 @@
  
  .active-link {
     text-decoration: underline; 
+    color: #F8BE2D;
  }
  
  .pie-link {
@@ -19,6 +50,7 @@
  .pie{
     background-color: #F8BE2D; 
     margin-top: auto;
+
  }
  
  .pie p {

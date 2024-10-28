@@ -26,21 +26,42 @@ interface Junta {
 })
 export class JuntaComponent implements OnInit{
   junta: Junta[] = [];
+  filteredJunta: Junta[] = [];       // Junta filtrada por año
+  availableYears: number[] = [];     // Años disponibles
+  selectedYear: number | null = null;
 
 
   constructor(private http: HttpClient) {}
 
 
   ngOnInit(): void {
-    this.http.get<{ data: Junta[] }>('http://localhost:1337/api/juntas') // Asegúrate de usar la ruta correcta
+    this.fetchJuntaData();
+  }
+
+  fetchJuntaData(): void {
+    this.http.get<{ data: Junta[] }>('http://localhost:1337/api/juntas')
       .subscribe({
         next: (response) => {
-          this.junta = response.data; // Cambia aquí para acceder a response.data
-          console.log(this.junta); // Opcional: Verifica que `junta` se haya asignado correctamente
+          this.junta = response.data;
+
+          // Extraemos los años y los ordenamos de mayor a menor
+          this.availableYears = [...new Set(this.junta.map(item => item.Anyo))].sort((a, b) => b - a).slice(0, 5);
+
+          // Establecemos el año más reciente como seleccionado por defecto
+          this.selectedYear = this.availableYears[0];
+          this.filterJunta();  // Filtramos los datos para el año más reciente
         },
         error: (error) => {
           console.error('Error fetching data from Strapi:', error);
         }
       });
+  }
+
+  onYearChange(): void {
+    this.filterJunta();
+  }
+
+  filterJunta(): void {
+    this.filteredJunta = this.junta.filter(item => item.Anyo === this.selectedYear);
   }
 }

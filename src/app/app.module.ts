@@ -27,6 +27,7 @@ import { JuntaComponent } from './componentes/paginas/junta/junta.component';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
 
   ],
   providers: [],
