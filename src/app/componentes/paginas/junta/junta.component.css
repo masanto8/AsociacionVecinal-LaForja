@@ -22,6 +22,20 @@
     vertical-align: middle;
 }
 
+.mostaza{
+    background-color: #F8BE2D;
+}
+
+.borde{
+    border-color: black;
+    border-width: 2px;
+}
+
+select{
+    margin-left: 4px;
+    
+}
+
 
 @media only screen and (max-width: 768px) {
     .table{

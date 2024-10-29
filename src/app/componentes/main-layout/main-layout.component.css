@@ -13,7 +13,7 @@ html, body {
 }
 
 .body{
-   margin-top: 86px;
+   margin-top: 98px;
    flex: 1; 
 }
 
@@ -28,11 +28,36 @@ html, body {
  .logo{
     height: 60px; 
     margin-right: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+ }
+
+.brand-container {
+   display: flex;
+   align-items: center; /* Alinea el logo y el texto verticalmente */
+}
+
+.brand-text {
+   display: flex;
+   flex-direction: column; /* Hace que cada línea esté en un bloque separado */
+   text-align: left;
+}
+
+.linea-superior2 {
+   display: none; 
  }
 
  .nav-link{
-   color: white;
- }
+  color: white;
+}
+
+
+.navbar-toggler{
+   border-color: rgba(214, 214, 214, 0.877);
+   border-width: 1.5px;
+}
+   
+
  
  .mrg{
     margin-right: 8px;
@@ -158,11 +183,18 @@ html, body {
  
  }
  
- @media only screen and (max-width: 376px) {
+ @media only screen and (max-width: 400px) {
     .logo{
        height: 60px; 
-       margin-right: -5px;
        margin-left: -10%;
+    }
+
+    .linea-superior1 {
+      display: none; 
+    }
+
+    .linea-superior2 {
+      display: contents;
     }
  
     .col{
