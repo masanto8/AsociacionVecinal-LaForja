@@ -1,0 +1,63 @@
+.carousel-text {
+    position: absolute;
+    right: 15%;
+    bottom: 35%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 1em rgb(255, 255, 255);
+}
+
+.dark-indicator {
+    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro para los indicadores */
+}
+
+.text-dark{
+    color: #000000;
+    text-shadow: 0 0 1em rgb(255, 255, 255);
+}
+
+.text-light{
+    color: #ffffff;
+    text-shadow: 0 0 1em rgb(0, 0, 0);
+}
+
+.text-title{
+    font-size: 400%;
+}
+
+.text-additional{
+    font-size: 175%;  
+    font-weight:initial; 
+}
+
+.tam-imag{
+    max-height: 379.49px;
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-text {
+        bottom: 25%;
+    }
+
+    .text-title{
+        font-size: 250%;
+    }
+    
+    .text-additional{
+        font-size: 140%;   
+    }
+    
+}
+@media only screen and (max-width: 550px) {
+    
+    .text-title {
+        font-size: 130%;
+    }
+
+    .text-additional{
+        font-size: 90%;   
+    }
+}

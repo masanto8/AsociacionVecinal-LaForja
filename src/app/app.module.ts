@@ -12,13 +12,16 @@ import { InfoComponent } from './componentes/paginas/info/info.component';
 import { TalleresComponent } from './componentes/paginas/talleres/talleres.component';
 import { TransparenciaComponent } from './componentes/paginas/transparencia/transparencia.component';
 import { JuntaComponent } from './componentes/paginas/junta/junta.component';
+import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, MainLayoutComponent, InicioComponent, AsociacionComponent, InfoComponent, TalleresComponent, TransparenciaComponent, JuntaComponent 
+    AppComponent, MainLayoutComponent, InicioComponent, AsociacionComponent, InfoComponent, TalleresComponent, CarruselComponent,
+    TransparenciaComponent, JuntaComponent,
+    
 
     // Agrega más componentes según sea necesario
   ],
