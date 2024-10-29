@@ -57,7 +57,13 @@ html, body {
    border-width: 1.5px;
 }
    
+.navbar-collapse{
+   text-align: end;
+}
 
+.mr{
+   margin-right: 10%;
+}
  
  .mrg{
     margin-right: 8px;
@@ -179,11 +185,10 @@ html, body {
        display: flex;
        align-items: center;
        margin-top: 25px;
-    }
+   }
+}
  
- }
- 
- @media only screen and (max-width: 400px) {
+ @media only screen and (max-width: 415px) {
     .logo{
        height: 60px; 
        margin-left: -10%;
@@ -201,8 +206,8 @@ html, body {
        margin-left: 0;
     }
  
-    .mrg-but{
-       margin-right: 1%;
+    .mrg-but, .mr{
+       margin-right: 5%;
     }
  
  }
