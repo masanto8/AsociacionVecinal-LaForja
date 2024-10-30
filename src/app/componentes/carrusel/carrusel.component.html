@@ -1,69 +1,23 @@
-
-<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" (slide)="onSlide($event)">
+<ngb-carousel #carousel="ngbCarousel" (slide)="onSlide($event)" class="carousel-fade" [ngClass]="{'carousel-dark': currentSlide >= 3}">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" [ngClass]="{'dark-indicator': currentSlide >= 3}"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" [ngClass]="{'dark-indicator': currentSlide >= 3}"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" [ngClass]="{'dark-indicator': currentSlide >= 3}"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4" [ngClass]="{'dark-indicator': currentSlide >= 3}"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5" [ngClass]="{'dark-indicator': currentSlide >= 3}"></button>
+        <button 
+            *ngFor="let slide of slides; let i = index" 
+            type="button" 
+            [attr.data-bs-slide-to]="i" 
+            [attr.aria-label]="'Slide ' + (i + 1)" 
+            [class.active]="i === currentSlide">
+        </button>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <a href="info" routerLink="/informacion"> 
-                <img src="assets\imagenes\infoCarrusel1.jpg" class="d-block w-100" alt="infoCarrusel.jpg">
-                <div class="carousel-text text-light d-block">
-                    <h5 class="text-title">Infórmate</h5>
-                    <h5 class="text-additional">Conóce las últimas noticas y nuestro trabajo</h5>
+    
+    <ng-template ngbSlide *ngFor="let slide of slides; let i = index">
+        <div>
+            <a [routerLink]="slide.link">
+                <img [src]="slide.img" class="d-block w-100" alt="{{slide.title}}">
+                <div class="carousel-text" [ngClass]="{'texto-sombra-light': i < 2,'texto-light': i === 2, 'texto-dark': i >= 3}">
+                    <h5 class="text-title">{{ slide.title }}</h5>
+                    <h5 class="text-additional">{{ slide.additional }}</h5>
                 </div>
             </a>
         </div>
-
-        <div class="carousel-item">
-            <a href="talleres" routerLink="/talleres">
-                <img src="assets\imagenes\talleresCarrusel1.jpg" class="d-block w-100" alt="talleresCarrusel.jpg">
-                <div class="carousel-text text-light d-block">
-                    <h5 class="text-title">Talleres</h5>
-                    <h5 class="text-additional">Descubre la variedad de talleres que promocionamos</h5>
-                </div>
-            </a>
-        </div>
-
-        <div class="carousel-item">
-            <a href="junta" routerLink="/junta">
-                <img src="assets\imagenes\juntaCarrusel1.jpg" class="d-block w-100" alt="juntaCarrusel.jpg">
-                <div class="carousel-text text-light d-block ">
-                    <h5 class="text-title">Junta Directiva</h5>
-                    <h5 class="text-additional">Listado de nuestros miembros directivos</h5>
-                </div>
-            </a>
-        </div>
-
-        <div class="carousel-item carousel-dark">
-            <a href="transparencia" routerLink="/transparencia">
-                <img src="assets\imagenes\transparenciaCarrusel2.jpg" class="d-block w-100" alt="transparenciaCarrusel.jpg">
-                <div class="carousel-text text-dark d-block ">
-                    <h5 class="text-title">Transparencia</h5>
-                    <h5 class="text-additional">Desglose de nuestras subvenciones y gastos</h5>
-                </div>
-            </a>
-        </div>
-
-        <div class="carousel-item carousel-dark">
-            <a href="asociacion" routerLink="/asociacion">
-                <img src="assets\imagenes\asociacionCarrusel1.jpg" class="d-block w-100" alt="asociacionCarrusel.jpg">
-                <div class="carousel-text text-dark d-block ">
-                    <h5 class="text-title">Conócenos</h5>
-                    <h5 class="text-additional">Conóce nuestra historia y cómo contactarnos</h5>
-                </div>
-            </a>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-</div>
+    </ng-template>
+</ngb-carousel>

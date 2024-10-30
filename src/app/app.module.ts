@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { InicioComponent } from './componentes/paginas/inicio/inicio.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { AsociacionComponent } from './componentes/paginas/asociacion/asociacion.component';
 import { InfoComponent } from './componentes/paginas/info/info.component';
 import { TalleresComponent } from './componentes/paginas/talleres/talleres.component';
@@ -31,6 +32,8 @@ import { CarruselComponent } from './componentes/carrusel/carrusel.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    NgbCarouselModule,
+
 
   ],
   providers: [],

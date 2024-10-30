@@ -10,18 +10,19 @@
     text-shadow: 0 0 1em rgb(255, 255, 255);
 }
 
-.dark-indicator {
-    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro para los indicadores */
-}
-
-.text-dark{
+.texto-dark{
     color: #000000;
-    text-shadow: 0 0 1em rgb(255, 255, 255);
+    text-shadow: 0 0 8px white;
 }
 
-.text-light{
+.texto-light{
     color: #ffffff;
-    text-shadow: 0 0 1em rgb(0, 0, 0);
+    text-shadow: 0 0 0px rgb(0, 0, 0);
+}
+
+.texto-sombra-light{
+    color: #ffffff;
+    text-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 .text-title{
@@ -37,7 +38,7 @@
     max-height: 379.49px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 938px) {
     .carousel-text {
         bottom: 25%;
     }
@@ -51,6 +52,20 @@
     }
     
 }
+
+
+@media only screen and (max-width: 630px) {
+    
+    .text-title {
+        font-size: 180%;
+    }
+
+    .text-additional{
+        font-size: 110%;   
+    }
+}
+
+
 @media only screen and (max-width: 550px) {
     
     .text-title {
@@ -59,5 +74,31 @@
 
     .text-additional{
         font-size: 90%;   
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    
+    .text-title {
+        font-size: 100%;
+    }
+
+    .text-additional{
+        font-size: 70%;   
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    
+    .text-title {
+        font-size: 90%;
+    }
+
+    .text-additional{
+        font-size: 70%;   
+    }
+
+    .carousel-text {
+        bottom: 12%;
     }
 }
