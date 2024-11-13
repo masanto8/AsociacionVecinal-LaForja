@@ -1,1 +1,62 @@
-<p>transparencia works!</p>
+
+<div class="transparencia body">
+    <div class="titulo h-center section">
+        <h1>TRANSPARENCIA</h1>
+        <div class="year">
+            <label for="yearSelect">Año: </label>
+            <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
+                <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <ng-container *ngIf="filteredTransparencia && filteredTransparencia.length > 0">
+            <ng-container *ngFor="let trans of filteredTransparencia">
+                <div>
+                    {{ trans.InformacionEconomica }}
+                </div>
+                <div>
+                    {{ trans.FuncionesNormativa }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividades }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoI }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoII }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoIII }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoIV }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoV }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoVI }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoVII }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoVIII }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoIX }}
+                </div>
+                <div>
+                    {{ trans.SubvencionesActividadesAnexoX }}
+                </div>
+
+
+            </ng-container>
+        </ng-container>
+    </div>
+    
+
+</div>
+

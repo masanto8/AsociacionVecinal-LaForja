@@ -14,14 +14,14 @@
   "attributes": {
     "Anyo": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "InformacionEconomica": {
       "type": "media",
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
@@ -30,7 +30,6 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
@@ -39,7 +38,6 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
@@ -48,7 +46,6 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
@@ -57,7 +54,6 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
@@ -66,7 +62,6 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
@@ -75,57 +70,56 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images",
         "files"
       ]
     },
     "SubvencionesActividadesAnexoV": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "SubvencionesActividadesAnexoVI": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "SubvencionesActividadesAnexoVII": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "SubvencionesActividadesAnexoVIII": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "SubvencionesActividadesAnexoIX": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "SubvencionesActividadesAnexoX": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }

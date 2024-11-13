@@ -4,7 +4,8 @@
   "info": {
     "singularName": "junta",
     "pluralName": "juntas",
-    "displayName": "Junta"
+    "displayName": "Junta",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

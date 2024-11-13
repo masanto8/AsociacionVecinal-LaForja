@@ -491,6 +491,7 @@ export interface ApiJuntaJunta extends Struct.CollectionTypeSchema {
     singularName: 'junta';
     pluralName: 'juntas';
     displayName: 'Junta';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -634,50 +635,22 @@ export interface ApiTransparenciaTransparencia
     draftAndPublish: true;
   };
   attributes: {
-    Anyo: Schema.Attribute.Integer & Schema.Attribute.Required;
-    InformacionEconomica: Schema.Attribute.Media<'images' | 'files', true>;
-    FuncionesNormativa: Schema.Attribute.Media<'images' | 'files', true>;
-    SubvencionesActividadesAnexoI: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoII: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoIII: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoIV: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividades: Schema.Attribute.Media<'images' | 'files', true>;
-    SubvencionesActividadesAnexoV: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoVI: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoVII: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoVIII: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoIX: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
-    SubvencionesActividadesAnexoX: Schema.Attribute.Media<
-      'images' | 'files',
-      true
-    >;
+    Anyo: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    InformacionEconomica: Schema.Attribute.Media<'files', true>;
+    FuncionesNormativa: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoI: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoII: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoIII: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoIV: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividades: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoV: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoVI: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoVII: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoVIII: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoIX: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoX: Schema.Attribute.Media<'files', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -1,15 +1,15 @@
 
-<div class="table-css">
+<div class="table-css body">
     <div class="junta">
-        <h1>Junta Directiva</h1>
-        <div class="year">
+        <h1 class="section">JUNTA DIRECTIVA</h1>
+        <div class="year section">
             <label for="yearSelect">Año:</label>
             <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
                 <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
             </select>
         </div>
     </div>
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered section">
         <thead>
             <tr>
             <th class="center-vert mostaza borde" scope="col">Cargo</th>
