@@ -1,22 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
+interface PdfFile {
+  url: string;
+}
 interface Transparencia {
   Anyo: number;
-  InformacionEconomica: 'application/pdf';
-  FuncionesNormativa: 'application/pdf';
-  SubvencionesActividades: 'application/pdf';
-  SubvencionesActividadesAnexoI: 'application/pdf';
-  SubvencionesActividadesAnexoII: 'application/pdf';
-  SubvencionesActividadesAnexoIII: 'application/pdf';
-  SubvencionesActividadesAnexoIV: 'application/pdf';
-  SubvencionesActividadesAnexoV: 'application/pdf';
-  SubvencionesActividadesAnexoVI: 'application/pdf';
-  SubvencionesActividadesAnexoVII: 'application/pdf';
-  SubvencionesActividadesAnexoVIII: 'application/pdf';
-  SubvencionesActividadesAnexoIX: 'application/pdf';
-  SubvencionesActividadesAnexoX: 'application/pdf';
+  InformacionEconomica?: PdfFile[];
+  FuncionesNormativa?: PdfFile[];
+  SubvencionesActividades?: PdfFile[];
+  SubvencionesActividadesAnexoI?: PdfFile[];
+  SubvencionesActividadesAnexoII?: PdfFile[];
+  SubvencionesActividadesAnexoIII?: PdfFile[];
+  SubvencionesActividadesAnexoIV?: PdfFile[];
+  SubvencionesActividadesAnexoV?: PdfFile[];
+  SubvencionesActividadesAnexoVI?: PdfFile[];
+  SubvencionesActividadesAnexoVII?: PdfFile[];
+  SubvencionesActividadesAnexoVIII?: PdfFile[];
+  SubvencionesActividadesAnexoIX?: PdfFile[];
+  SubvencionesActividadesAnexoX?: PdfFile[];
 }
 @Component({
   selector: 'app-transparencia',
@@ -28,8 +32,9 @@ export class TransparenciaComponent implements OnInit{
   filteredTransparencia: Transparencia[] = [];       // Transparencia filtrada por año
   availableYears: number[] = [];     // Años disponibles
   selectedYear: number | null = null;
-
-  constructor(private http: HttpClient) {}
+  private readonly BASE_URL = 'http://localhost:1337';
+  
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
 
   ngOnInit(): void {
@@ -37,9 +42,10 @@ export class TransparenciaComponent implements OnInit{
   }
 
   fetchTransparenciaData(): void {
-    this.http.get<{ data: Transparencia[] }>('http://localhost:1337/api/transparencias')
+    this.http.get<{ data: Transparencia[] }>('http://localhost:1337/api/transparencias?populate=*')
       .subscribe({
         next: (response) => {
+          console.log('Datos recibidos desde Strapi:', response);  // Agrega este log
           this.transparencia = response.data;
 
           // Extraemos los años y los ordenamos de mayor a menor
@@ -61,6 +67,13 @@ export class TransparenciaComponent implements OnInit{
 
   filterTransparencia(): void {
     this.filteredTransparencia = this.transparencia.filter(item => item.Anyo === this.selectedYear);
+  }
+
+
+  getSanitizedUrl(url: string): SafeResourceUrl {
+    const fullUrl = url.startsWith('http') ? url : `${this.BASE_URL}${url}`;
+    console.log(this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl));
+    return this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl);
   }
 }
 
