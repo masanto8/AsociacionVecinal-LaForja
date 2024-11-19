@@ -34,6 +34,10 @@ export class TransparenciaComponent implements OnInit{
   selectedYear: number | null = null;
   private readonly BASE_URL = 'http://localhost:1337';
   
+  // Variable para controlar la visualización del PDF
+  showPdf: boolean = false;
+  pdfUrl: SafeResourceUrl | null = null; // URL del PDF a mostrar
+
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
 
@@ -44,8 +48,7 @@ export class TransparenciaComponent implements OnInit{
   fetchTransparenciaData(): void {
     this.http.get<{ data: Transparencia[] }>('http://localhost:1337/api/transparencias?populate=*')
       .subscribe({
-        next: (response) => {
-          console.log('Datos recibidos desde Strapi:', response);  // Agrega este log
+        next: (response) => { 
           this.transparencia = response.data;
 
           // Extraemos los años y los ordenamos de mayor a menor
@@ -69,11 +72,17 @@ export class TransparenciaComponent implements OnInit{
     this.filteredTransparencia = this.transparencia.filter(item => item.Anyo === this.selectedYear);
   }
 
+  // Función para mostrar el PDF correspondiente
+  showDocument(url: string): void {
+    const completeUrl = url.startsWith('/') ? `${this.BASE_URL}${url}` : url;
+    this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(completeUrl);
+    this.showPdf = true;
+  }
 
-  getSanitizedUrl(url: string): SafeResourceUrl {
-    const fullUrl = url.startsWith('http') ? url : `${this.BASE_URL}${url}`;
-    console.log(this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl));
-    return this.sanitizer.bypassSecurityTrustResourceUrl(fullUrl);
+  // Función para ocultar el PDF
+  hideDocument(): void {
+    this.showPdf = false;
+    this.pdfUrl = null;
   }
 }
 

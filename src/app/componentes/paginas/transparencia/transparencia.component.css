@@ -30,8 +30,10 @@ body {
 
 
 .transparencia{
-    width: 70%;
-    margin-left: 15%;
+    margin-top: 5%;
+    padding-top: 2%;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .titulo{
@@ -46,8 +48,62 @@ body {
     margin-top: 12px;
 }
 
+.subrayado{
+    text-decoration: underline;
+}
+
 select{
     margin-left: 4px; 
+}
+
+.fondo-amarillo{
+    background-color: rgba(130, 130, 130, 0.311);
+}
+
+
+/* Estilos para el fondo oscuro */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.311); /* Fondo negro con opacidad */
+    z-index: 1000; /* Asegurarse de que esté encima del resto */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+  
+  /* Contenedor del PDF */
+.modal-content {
+    position: relative;
+    width: 80%; /* Ancho del modal */
+    height: 90%; /* Alto del modal */
+    background: white; /* Fondo blanco para el PDF */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    z-index: 1001;
+}
+  
+  /* Botón para cerrar el modal */
+.modal-close-button {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
 }
 
 
