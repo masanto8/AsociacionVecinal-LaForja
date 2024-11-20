@@ -31,9 +31,10 @@ body {
 
 .transparencia{
     margin-top: 5%;
-    padding-top: 2%;
+    padding-top: 4%;
     padding-left: 15%;
     padding-right: 15%;
+    padding-bottom: 2%;
 }
 
 .titulo{
@@ -51,6 +52,7 @@ body {
 .subrayado{
     text-decoration: underline;
 }
+
 .trans-img{
     object-fit: cover;
     width: 100%;
@@ -75,15 +77,36 @@ body {
 }
 
 .tam-imag{
-    max-width: 30%;
+    max-width: 40%;
     height: auto;
     overflow: hidden;
     position: relative;
+    margin: 2%;
 }
 
 .cols{
     display: flex;
-    direction: row;
+    flex-direction: row;
+}
+
+.tarjeta{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 2%;
+    margin-bottom: 4%;
+}
+
+.text-align{
+    text-align: left;
+}
+
+.justify-but{
+    display: flex;
+    justify-content:left;
+}
+
+.text-padding{
+    padding: 2%;
 }
 
 
@@ -91,7 +114,7 @@ select{
     margin-left: 4px; 
 }
 
-.fondo-amarillo{
+.fondo-gris{
     background-color: rgba(130, 130, 130, 0.311);
 }
 
@@ -141,10 +164,34 @@ select{
     z-index: 1002;
 }
 
+@media only screen and (max-width: 1300px) {
+    .transparencia{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .cols{
+        flex-direction: column;
+    }
+
+    .tam-imag{
+        max-width: 80%;
+        margin-left: 10%;
+
+    }
+
+    .text-align{
+        text-align: center;
+    }
+
+    .justify-but{
+        justify-content: center;
+    }
+
+}
 
 @media only screen and (max-width: 520px) {
-    .transparencia{
-        width: 80%;
-        margin-left: 10%; 
-    }
+
 }

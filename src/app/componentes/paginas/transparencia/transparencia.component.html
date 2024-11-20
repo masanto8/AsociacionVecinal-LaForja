@@ -9,16 +9,36 @@
             </select>
         </div>
     </div>
-    <div class=" transparencia fondo-amarillo">
+
+    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">    
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">Funciones y Normativa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading2">Información Económica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">Subvenciones y Actividades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">Anexos</a>
+          </li>
+        </ul>
+    </nav>
+
+
+    <div class="transparencia fondo-gris" data-bs-spy="scroll" 
+    data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"  tabindex="0">
         <ng-container *ngIf="filteredTransparencia && filteredTransparencia.length > 0">
             <ng-container *ngFor="let trans of filteredTransparencia">
 
                 <div *ngIf="trans.FuncionesNormativa && trans.FuncionesNormativa.length > 0" >
                     
-                    <div class="cols">
-                        <div>
+                    <div class="cols tarjeta">
+                        <div class="text-padding">
                             <div>
-                                <h4 class="subrayado">FUNCIONES Y NORMATIVA</h4>
+                                <h4 class="subrayado text-align" id="scrollspyHeading1">FUNCIONES Y NORMATIVA</h4>
                                 <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
                                 <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
                                     de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
@@ -28,7 +48,10 @@
                                 <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
                                 <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
                             </div>
-                            <button (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
+                            <div class="justify-but">
+                                <button  (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
+                            </div>
+                            
                             <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
                                 <div class="modal-content" (click)="$event">
                                 <!-- Botón para cerrar el modal -->
@@ -38,19 +61,21 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="degradado-morado tam-imag">
                             <img src="assets/imagenes/funcionesNormativa.jpg" class="degradado trans-img" alt="">
-                        </div>
+                        </div>  
                     </div>
                 </div>
-                <hr>
+
+
+
                 <div *ngIf="trans.InformacionEconomica && trans.InformacionEconomica.length > 0">
                     
-                    <div class="cols">
-                        <div>
+                    <div class="cols tarjeta">
+                        <div class="text-padding">
                             <div>
-                                <h4 class="subrayado">INFORMACIÓN ECONÓMICA</h4>
+                                <h4 class="subrayado text-align" id="scrollspyHeading2">INFORMACIÓN ECONÓMICA</h4>
                                 <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
                                 <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
                                     de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
@@ -60,7 +85,9 @@
                                 <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
                                 <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
                             </div>
-                            <button (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
+                            <div class="justify-but">
+                                <button  (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
+                            </div>
                         
                         
                             <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
@@ -78,14 +105,14 @@
                     </div>
                 </div>
 
-                <hr>
+
 
                 <div *ngIf="trans.SubvencionesActividades && trans.SubvencionesActividades.length > 0">
                     
-                    <div class="cols">
-                        <div>
+                    <div class="cols tarjeta">
+                        <div class="text-padding">
                             <div>
-                                <h4 class="subrayado">SUBVENCIONES Y ACTIVIDADES</h4>
+                                <h4 class="subrayado text-align" id="scrollspyHeading3">SUBVENCIONES Y ACTIVIDADES</h4>
                                 <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
                                 <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
                                     de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
@@ -95,7 +122,9 @@
                                 <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
                                 <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
                             </div>
-                            <button (click)="showDocument(trans.SubvencionesActividades[0].url)">Ver Documento</button>
+                            <div class="justify-but">
+                                <button  (click)="showDocument(trans.SubvencionesActividades[0].url)">Ver Documento</button>
+                            </div>
                             <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
                                 <div class="modal-content" (click)="$event">
                                 <!-- Botón para cerrar el modal -->
@@ -110,6 +139,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 
                 <div *ngIf="trans.SubvencionesActividadesAnexoI && trans.SubvencionesActividadesAnexoI.length > 0">
                     <h3>Subvenciones/Actividades Anexo I</h3>
