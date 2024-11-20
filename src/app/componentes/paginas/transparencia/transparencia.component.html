@@ -14,52 +14,101 @@
             <ng-container *ngFor="let trans of filteredTransparencia">
 
                 <div *ngIf="trans.FuncionesNormativa && trans.FuncionesNormativa.length > 0" >
-                    <h4 class="subrayado">FUNCIONES Y NORMATIVA</h4>
-                    <div>
-                        <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
-                        <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
-                            de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
-                            herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
-                            la ciudadanía en las actividades de la Asociación.
-                        </p>
-                        <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
-                        <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
-                    </div>
-                    <button (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
-                    <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                        <div class="modal-content" (click)="$event">
-                          <!-- Botón para cerrar el modal -->
-                            <button class="modal-close-button" (click)="hideDocument()">X</button>
-                          <!-- PDF mostrado en el modal -->
-                            <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
-                        </div>
-                    </div>
-                </div>
-
-                <div *ngIf="trans.InformacionEconomica && trans.InformacionEconomica.length > 0">
-                    <h4 class="subrayado">INFORMACIÓN ECONÓMICA</h4>
-                    <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
-                        de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
-                        herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
-                        la ciudadanía en las actividades de la Asociación.
-                    </p>
-                    <button (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
-                    <div *ngIf="showPdf" class="modal-backdrop">
-                        <div class="modal-content">
-                          <!-- Botón para cerrar el modal -->
-                            <button class="modal-close-button" (click)="hideDocument()">X</button>
-                          <!-- PDF mostrado en el modal -->
-                            <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
-                        </div>
-                    </div>
                     
+                    <div class="cols">
+                        <div>
+                            <div>
+                                <h4 class="subrayado">FUNCIONES Y NORMATIVA</h4>
+                                <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
+                                    de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
+                                    herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
+                                    la ciudadanía en las actividades de la Asociación.
+                                </p>
+                                <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
+                            </div>
+                            <button (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
+                            <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
+                                <div class="modal-content" (click)="$event">
+                                <!-- Botón para cerrar el modal -->
+                                    <button class="modal-close-button" (click)="hideDocument()">X</button>
+                                <!-- PDF mostrado en el modal -->
+                                    <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="degradado-morado tam-imag">
+                            <img src="assets/imagenes/funcionesNormativa.jpg" class="degradado trans-img" alt="">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div *ngIf="trans.InformacionEconomica && trans.InformacionEconomica.length > 0">
+                    
+                    <div class="cols">
+                        <div>
+                            <div>
+                                <h4 class="subrayado">INFORMACIÓN ECONÓMICA</h4>
+                                <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
+                                    de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
+                                    herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
+                                    la ciudadanía en las actividades de la Asociación.
+                                </p>
+                                <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
+                            </div>
+                            <button (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
+                        
+                        
+                            <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
+                                <div class="modal-content" (click)="$event">
+                                <!-- Botón para cerrar el modal -->
+                                    <button class="modal-close-button" (click)="hideDocument()">X</button>
+                                <!-- PDF mostrado en el modal -->
+                                    <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="degradado-mostaza tam-imag">
+                            <img src="assets/imagenes/informacionEconomica.jpg" class="degradado trans-img" alt="">
+                        </div>
+                    </div>
                 </div>
 
-                
+                <hr>
 
                 <div *ngIf="trans.SubvencionesActividades && trans.SubvencionesActividades.length > 0">
-                    <h3>Subvenciones/Actividades</h3>
                     
+                    <div class="cols">
+                        <div>
+                            <div>
+                                <h4 class="subrayado">SUBVENCIONES Y ACTIVIDADES</h4>
+                                <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
+                                    de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
+                                    herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
+                                    la ciudadanía en las actividades de la Asociación.
+                                </p>
+                                <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
+                            </div>
+                            <button (click)="showDocument(trans.SubvencionesActividades[0].url)">Ver Documento</button>
+                            <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
+                                <div class="modal-content" (click)="$event">
+                                <!-- Botón para cerrar el modal -->
+                                    <button class="modal-close-button" (click)="hideDocument()">X</button>
+                                <!-- PDF mostrado en el modal -->
+                                    <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="degradado-azul tam-imag">
+                            <img src="assets/imagenes/subvencionesActividades.jpg" class="degradado trans-img" alt="">
+                        </div>
+                    </div>
                 </div>
                 
                 <div *ngIf="trans.SubvencionesActividadesAnexoI && trans.SubvencionesActividadesAnexoI.length > 0">
