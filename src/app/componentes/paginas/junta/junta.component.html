@@ -4,7 +4,7 @@
         <h1 class="section">JUNTA DIRECTIVA</h1>
         <div class="year section">
             <label for="yearSelect">Año:</label>
-            <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
+            <select id="yearSelect" [value]="selectedYear" (change)="updateYear($event)">
                 <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
             </select>
         </div>

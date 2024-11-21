@@ -57,11 +57,17 @@ export class JuntaComponent implements OnInit{
       });
   }
 
-  onYearChange(): void {
-    this.filterJunta();
+  updateYear(event: Event): void {
+    const target = event.target as HTMLSelectElement | null; // Especificar tipo
+    if (target) {
+      this.selectedYear = +target.value; // Convierte el valor a número
+      this.filterJunta();
+    }
   }
 
   filterJunta(): void {
-    this.filteredJunta = this.junta.filter(item => item.Anyo === this.selectedYear);
+    if (this.selectedYear !== null) {
+      this.filteredJunta = this.junta.filter(item => item.Anyo === this.selectedYear);
+    }
   }
 }

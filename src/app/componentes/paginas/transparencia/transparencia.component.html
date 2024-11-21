@@ -4,198 +4,267 @@
         <h1>TRANSPARENCIA</h1>
         <div class="year">
             <label for="yearSelect">Año: </label>
-            <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearChange()">
+            <select id="yearSelect" [value]="selectedYear" (change)="updateYear($event)">
                 <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
             </select>
         </div>
     </div>
 
-    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">    
-        <ul class="nav nav-pills">
+    <nav id="navbar-example2" class="navbar scrollsky">    
+        <ul class="nav nav-pills center">
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Funciones y Normativa</a>
+            <a class="nav-link " href="#scrollspyHeading1" (click)="scrollTo('scrollspyHeading1', $event)">Funciones y Normativa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading2">Información Económica</a>
+            <a class="nav-link" href="#scrollspyHeading2" (click)="scrollTo('scrollspyHeading2', $event)">Información Económica</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Subvenciones y Actividades</a>
+            <a class="nav-link" href="#scrollspyHeading3" (click)="scrollTo('scrollspyHeading3', $event)">Subvenciones y Actividades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Anexos</a>
+            <a class="nav-link" href="#scrollspyHeading4" (click)="scrollTo('scrollspyHeading4', $event)">Anexos</a>
           </li>
         </ul>
     </nav>
 
 
-    <div class="transparencia fondo-gris" data-bs-spy="scroll" 
+    <div data-bs-spy="scroll" 
     data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"  tabindex="0">
         <ng-container *ngIf="filteredTransparencia && filteredTransparencia.length > 0">
             <ng-container *ngFor="let trans of filteredTransparencia">
+                <div class="transparencia fondo-gris">
+                    <div *ngIf="trans.FuncionesNormativa && trans.FuncionesNormativa.length > 0" >
+                        
+                        <div class="cols tarjeta" id="scrollspyHeading1">
+                            <div class="text-padding">
+                                <div>
+                                    <h4 class="subrayado text-align" >FUNCIONES Y NORMATIVA</h4>
+                                    <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                    <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
+                                        de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
+                                        herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
+                                        la ciudadanía en las actividades de la Asociación.
+                                    </p>
+                                    <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                    <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
+                                </div>
+                                <div class="justify-but">
+                                    <button class="hover-morado" (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
+                                </div>
+                                
+                                <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
+                                    <div class="modal-content" (click)="$event">
+                                    <!-- Botón para cerrar el modal -->
+                                        <button class="modal-close-button" (click)="hideDocument()">X</button>
+                                    <!-- PDF mostrado en el modal -->
+                                        <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div *ngIf="trans.FuncionesNormativa && trans.FuncionesNormativa.length > 0" >
-                    
-                    <div class="cols tarjeta">
-                        <div class="text-padding">
-                            <div>
-                                <h4 class="subrayado text-align" id="scrollspyHeading1">FUNCIONES Y NORMATIVA</h4>
-                                <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
-                                <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
-                                    de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
-                                    herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
-                                    la ciudadanía en las actividades de la Asociación.
-                                </p>
-                                <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
-                                <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
-                            </div>
-                            <div class="justify-but">
-                                <button  (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
-                            </div>
+                            <div class="degradado-morado tam-imag">
+                                <img src="assets/imagenes/funcionesNormativa.jpg" class="degradado trans-img" alt="">
+                            </div>  
+                        </div>
+                    </div>
+
+
+
+                    <div *ngIf="trans.InformacionEconomica && trans.InformacionEconomica.length > 0">
+                        
+                        <div class="cols tarjeta">
+                            <div class="text-padding">
+                                <div>
+                                    <h4 class="subrayado text-align" id="scrollspyHeading2">INFORMACIÓN ECONÓMICA</h4>
+                                    <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                    <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
+                                        de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
+                                        herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
+                                        la ciudadanía en las actividades de la Asociación.
+                                    </p>
+                                    <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                    <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
+                                </div>
+                                <div class="justify-but">
+                                    <button class="hover-mostaza" (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
+                                </div>
                             
-                            <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                                <div class="modal-content" (click)="$event">
-                                <!-- Botón para cerrar el modal -->
-                                    <button class="modal-close-button" (click)="hideDocument()">X</button>
-                                <!-- PDF mostrado en el modal -->
-                                    <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                            
+                                <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
+                                    <div class="modal-content" (click)="$event">
+                                    <!-- Botón para cerrar el modal -->
+                                        <button class="modal-close-button" (click)="hideDocument()">X</button>
+                                    <!-- PDF mostrado en el modal -->
+                                        <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                                    </div>
                                 </div>
                             </div>
+                            <div  class="degradado-mostaza tam-imag">
+                                <img src="assets/imagenes/informacionEconomica.jpg" class="degradado trans-img" alt="">
+                            </div>
                         </div>
-
-                        <div class="degradado-morado tam-imag">
-                            <img src="assets/imagenes/funcionesNormativa.jpg" class="degradado trans-img" alt="">
-                        </div>  
                     </div>
-                </div>
 
 
 
-                <div *ngIf="trans.InformacionEconomica && trans.InformacionEconomica.length > 0">
-                    
-                    <div class="cols tarjeta">
-                        <div class="text-padding">
-                            <div>
-                                <h4 class="subrayado text-align" id="scrollspyHeading2">INFORMACIÓN ECONÓMICA</h4>
-                                <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
-                                <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
-                                    de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
-                                    herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
-                                    la ciudadanía en las actividades de la Asociación.
-                                </p>
-                                <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
-                                <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
-                            </div>
-                            <div class="justify-but">
-                                <button  (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
-                            </div>
+                    <div *ngIf="trans.SubvencionesActividades && trans.SubvencionesActividades.length > 0">
                         
-                        
-                            <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                                <div class="modal-content" (click)="$event">
-                                <!-- Botón para cerrar el modal -->
-                                    <button class="modal-close-button" (click)="hideDocument()">X</button>
-                                <!-- PDF mostrado en el modal -->
-                                    <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                        <div class="cols tarjeta">
+                            <div class="text-padding">
+                                <div>
+                                    <h4 class="subrayado text-align" id="scrollspyHeading3">SUBVENCIONES Y ACTIVIDADES</h4>
+                                    <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                    <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
+                                        de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
+                                        herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
+                                        la ciudadanía en las actividades de la Asociación.
+                                    </p>
+                                    <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
+                                    <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
+                                </div>
+                                <div class="justify-but">
+                                    <button class="hover-azul" (click)="showDocument(trans.SubvencionesActividades[0].url)">Ver Documento</button>
+                                </div>
+                                <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
+                                    <div class="modal-content" (click)="$event">
+                                    <!-- Botón para cerrar el modal -->
+                                        <button class="modal-close-button" (click)="hideDocument()">X</button>
+                                    <!-- PDF mostrado en el modal -->
+                                        <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div  class="degradado-mostaza tam-imag">
-                            <img src="assets/imagenes/informacionEconomica.jpg" class="degradado trans-img" alt="">
+                            <div  class="degradado-azul tam-imag">
+                                <img src="assets/imagenes/subvencionesActividades.jpg" class="degradado trans-img" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
 
-                <div *ngIf="trans.SubvencionesActividades && trans.SubvencionesActividades.length > 0">
-                    
-                    <div class="cols tarjeta">
-                        <div class="text-padding">
-                            <div>
-                                <h4 class="subrayado text-align" id="scrollspyHeading3">SUBVENCIONES Y ACTIVIDADES</h4>
-                                <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
-                                <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
-                                    de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
-                                    herramienta colaborativa y reivindicativa, haciendo hincapié en la implicación de las familias y
-                                    la ciudadanía en las actividades de la Asociación.
-                                </p>
-                                <h5>ACTIVIDADES que se desarrollan de acuerdo con sus estatutos:</h5>
-                                <p>Cursos, charlas, talleres y todo tipo de actividades para fomentar la participación ciudadana.</p>
-                            </div>
-                            <div class="justify-but">
-                                <button  (click)="showDocument(trans.SubvencionesActividades[0].url)">Ver Documento</button>
-                            </div>
-                            <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                                <div class="modal-content" (click)="$event">
-                                <!-- Botón para cerrar el modal -->
-                                    <button class="modal-close-button" (click)="hideDocument()">X</button>
-                                <!-- PDF mostrado en el modal -->
-                                    <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
+                <div class="transparencia fondo-blanco">
+                    <h2 class="center" id="scrollspyHeading4">ANEXOS</h2>
+                    <h4 class="center marg-bot">Subvenciones y Actividades</h4>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoI && trans.SubvencionesActividadesAnexoI.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo I - {{ trans.NombreAnexoI }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoI[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>   
                                 </div>
                             </div>
                         </div>
-                        <div  class="degradado-azul tam-imag">
-                            <img src="assets/imagenes/subvencionesActividades.jpg" class="degradado trans-img" alt="">
+
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoII && trans.SubvencionesActividadesAnexoII.length > 0">
+                          <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo II - {{ trans.NombreAnexoII }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoII[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button> 
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoIII && trans.SubvencionesActividadesAnexoIII.length > 0">
+                            <div class="card h-100">                        
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo III - {{ trans.NombreAnexoIII }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoIII[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                
-                <div *ngIf="trans.SubvencionesActividadesAnexoI && trans.SubvencionesActividadesAnexoI.length > 0">
-                    <h3>Subvenciones/Actividades Anexo I</h3>
-                    
-                </div>
- 
-                <div *ngIf="trans.SubvencionesActividadesAnexoII && trans.SubvencionesActividadesAnexoII.length > 0">
-                    <h3>Subvenciones/Actividades Anexo II</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoIV && trans.SubvencionesActividadesAnexoIV.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo IV - {{ trans.NombreAnexoIV }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoIV[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoIII && trans.SubvencionesActividadesAnexoIII.length > 0">
-                    <h3>Subvenciones/Actividades Anexo III</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoV && trans.SubvencionesActividadesAnexoV.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo V - {{ trans.NombreAnexoV }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoV[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoIV && trans.SubvencionesActividadesAnexoIV.length > 0">
-                    <h3>Subvenciones/Actividades Anexo IV</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoVI && trans.SubvencionesActividadesAnexoVI.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo VI - {{ trans.NombreAnexoVI }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoVI[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoV && trans.SubvencionesActividadesAnexoV.length > 0">
-                    <h3>Subvenciones/Actividades Anexo V</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoVII && trans.SubvencionesActividadesAnexoVII.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo VII - {{ trans.NombreAnexoVII }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoVII[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoVI && trans.SubvencionesActividadesAnexoVI.length > 0">
-                    <h3>Subvenciones/Actividades Anexo VI</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoVIII && trans.SubvencionesActividadesAnexoVIII.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo VIII - {{ trans.NombreAnexoVIII }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoVIII[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoVII && trans.SubvencionesActividadesAnexoVII.length > 0">
-                    <h3>Subvenciones/Actividades Anexo VII</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoIX && trans.SubvencionesActividadesAnexoIX.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo IX - {{ trans.NombreAnexoIX }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoIX[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoVIII && trans.SubvencionesActividadesAnexoVIII.length > 0">
-                    <h3>Subvenciones/Actividades Anexo VIII</h3>
-                    
-                </div>
+                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoX && trans.SubvencionesActividadesAnexoX.length > 0">
+                            <div class="card h-100">
+                                <div class="card-body center">
+                                    <h5 class="card-title">Anexo X - {{ trans.NombreAnexoX }}</h5>
+                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoX[0].url)">
+                                        <i class="bi bi-filetype-pdf"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div *ngIf="trans.SubvencionesActividadesAnexoIX && trans.SubvencionesActividadesAnexoIX.length > 0">
-                    <h3>Subvenciones/Actividades Anexo IX</h3>
-                    
-                </div>
-
-                <div *ngIf="trans.SubvencionesActividadesAnexoX && trans.SubvencionesActividadesAnexoX.length > 0">
-                    <h3>Subvenciones/Actividades Anexo X</h3>
-                    
+                    </div>                   
                 </div>
 
             </ng-container>
         </ng-container>
+
     </div>
-    
 
 </div>
 
+<app-scroll-to-top></app-scroll-to-top>

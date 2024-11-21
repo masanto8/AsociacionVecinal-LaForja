@@ -30,11 +30,46 @@ body {
 
 
 .transparencia{
-    margin-top: 5%;
     padding-top: 4%;
     padding-left: 15%;
     padding-right: 15%;
     padding-bottom: 2%;
+}
+
+.scrollsky{
+    margin-top: 4%;
+    justify-content: center;
+    background-color: rgba(139, 139, 139, 0.701);
+}
+
+.nav-link{
+    color: white;
+    font-weight: 600;
+    font-size: large;
+}
+
+
+.nav-link:hover{
+    color:rgb(0, 135, 142);
+    background-color: rgba(255, 255, 255, 0.434);
+}
+
+.hover-morado:hover{
+    background-color: rgba(102, 0, 161);
+    color: white;
+    border-color: transparent;
+}
+
+.hover-azul:hover{
+    background-color: rgb(0, 135, 142);
+    color: white;
+    border-color: transparent;
+}
+
+.hover-mostaza:hover{
+    background-color:  rgba(248, 190, 45);
+    color: white;
+    border-color: transparent;
 }
 
 .titulo{
@@ -52,6 +87,8 @@ body {
 .subrayado{
     text-decoration: underline;
 }
+
+
 
 .trans-img{
     object-fit: cover;
@@ -115,9 +152,45 @@ select{
 }
 
 .fondo-gris{
-    background-color: rgba(130, 130, 130, 0.311);
+    background-color: rgba(92, 92, 92, 0.311);
 }
 
+.fondo-blanco{
+    background-color: white ;
+}
+
+.anexo-boton{
+    border-radius: 50%;
+    width: 60px; /* Tamaño del círculo */
+    height: 60px;
+    background-color: rgba(102, 0, 161, 1);
+    border-color: transparent;
+}
+
+.anexo-boton:hover{
+    background-color: rgba(17, 157, 164, 1);
+}
+
+.anexo-boton i{
+    color: white;
+    font-size: 30px; /* Tamaño del ícono */    
+}
+
+.center{
+    text-align: center;
+    justify-content: center;
+}
+
+.marg-bot{
+    margin-bottom: 3%;
+}
+
+.card{
+    border-radius: 0px;
+    border-left: 7px solid rgba(102, 0, 161, 1);
+    background-color: rgba(219, 219, 219, 0.201);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3)
+}
 
 /* Estilos para el fondo oscuro */
 .modal-backdrop {

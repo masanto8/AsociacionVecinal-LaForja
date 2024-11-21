@@ -21,6 +21,16 @@ interface Transparencia {
   SubvencionesActividadesAnexoVIII?: PdfFile[];
   SubvencionesActividadesAnexoIX?: PdfFile[];
   SubvencionesActividadesAnexoX?: PdfFile[];
+  NombreAnexoI?: string;
+  NombreAnexoII?: string;
+  NombreAnexoIII?: string;
+  NombreAnexoIV?: string;
+  NombreAnexoV?: string;
+  NombreAnexoVI?: string;
+  NombreAnexoVII?: string;
+  NombreAnexoVIII?: string;
+  NombreAnexoIX?: string;
+  NombreAnexoX?: string;
 }
 @Component({
   selector: 'app-transparencia',
@@ -64,12 +74,18 @@ export class TransparenciaComponent implements OnInit{
       });
   }
 
-  onYearChange(): void {
-    this.filterTransparencia();
+  updateYear(event: Event): void {
+    const target = event.target as HTMLSelectElement | null; // Especificar tipo
+    if (target) {
+      this.selectedYear = +target.value; // Convierte el valor a número
+      this.filterTransparencia();
+    }
   }
 
   filterTransparencia(): void {
-    this.filteredTransparencia = this.transparencia.filter(item => item.Anyo === this.selectedYear);
+    if (this.selectedYear !== null) {
+      this.filteredTransparencia = this.transparencia.filter(item => item.Anyo === this.selectedYear);
+    }
   }
 
   // Función para mostrar el PDF correspondiente
@@ -83,6 +99,22 @@ export class TransparenciaComponent implements OnInit{
   hideDocument(): void {
     this.showPdf = false;
     this.pdfUrl = null;
+  }
+
+  //Función para el scrollsky
+  scrollTo(id: string, event: Event): void {
+    event.preventDefault(); // Evita redirecciones
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 250; // Ajusta este valor a la altura de tu navbar
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   }
 }
 

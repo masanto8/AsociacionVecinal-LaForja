@@ -1,0 +1,78 @@
+
+
+#scrollToTopBtn {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 90%;
+    bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; 
+    border: none;
+    border-radius: 50%; /* Forma circular */
+    width: 58px; /* Tamaño del círculo */
+    height: 56px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.514); /* Sombra para resaltarlo */
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: none; /* No permite clics cuando está oculto */
+    margin-bottom: 3%;
+}
+
+#scrollToTopBtn i {
+    font-size: 60px; /* Tamaño del ícono */
+    color: white; /* Color principal */
+    transition: color 0.3s ease, transform 0.3s ease;
+    
+}
+  
+#scrollToTopBtn:hover i {
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+#scrollToTopBtn.visible {
+    opacity: 1; /* Visible cuando se pasa de 100px */
+    pointer-events: auto; /* Reactivamos los clics */
+     /* Asegura la posición */
+}
+  
+#scrollToTopBtn.hidden {
+    opacity: 0; /* Oculto */
+    pointer-events: none; /* Desactiva clics */
+    /* Desplaza hacia abajo al ocultarse */
+}
+
+
+@media only screen and (max-width: 1300px) {
+    #scrollToTopBtn {
+        left: 92%;
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    #scrollToTopBtn {
+        left: 90%;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    #scrollToTopBtn {
+        left: 88%; 
+    }
+}
+
+@media only screen and (max-width: 565px) {
+    #scrollToTopBtn {
+        left: 85%;
+        width: 48px; /* Tamaño del círculo */
+        height: 46px;
+        bottom: 30px;
+    }
+    
+    #scrollToTopBtn i {
+        font-size: 50px; /* Tamaño del ícono */
+ 
+    }
+}

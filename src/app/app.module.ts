@@ -14,6 +14,7 @@ import { TalleresComponent } from './componentes/paginas/talleres/talleres.compo
 import { TransparenciaComponent } from './componentes/paginas/transparencia/transparencia.component';
 import { JuntaComponent } from './componentes/paginas/junta/junta.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
+import { ScrollToTopComponent } from './componentes/scroll-to-top/scroll-to-top.component';
 
 
 
@@ -21,7 +22,7 @@ import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 @NgModule({
   declarations: [
     AppComponent, MainLayoutComponent, InicioComponent, AsociacionComponent, InfoComponent, TalleresComponent, CarruselComponent,
-    TransparenciaComponent, JuntaComponent,
+    TransparenciaComponent, JuntaComponent, ScrollToTopComponent,
     
 
     // Agrega más componentes según sea necesario

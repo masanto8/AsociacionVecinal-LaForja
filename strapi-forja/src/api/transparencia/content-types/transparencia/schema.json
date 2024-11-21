@@ -120,6 +120,36 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "NombreAnexoI": {
+      "type": "string"
+    },
+    "NombreAnexoII": {
+      "type": "string"
+    },
+    "NombreAnexoIII": {
+      "type": "string"
+    },
+    "NombreAnexoIV": {
+      "type": "string"
+    },
+    "NombreAnexoV": {
+      "type": "string"
+    },
+    "NombreAnexoVI": {
+      "type": "string"
+    },
+    "NombreAnexoVII": {
+      "type": "string"
+    },
+    "NombreAnexoVIII": {
+      "type": "string"
+    },
+    "NombreAnexoIX": {
+      "type": "string"
+    },
+    "NombreAnexoX": {
+      "type": "string"
     }
   }
 }

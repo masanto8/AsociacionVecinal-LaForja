@@ -651,6 +651,16 @@ export interface ApiTransparenciaTransparencia
     SubvencionesActividadesAnexoVIII: Schema.Attribute.Media<'files', true>;
     SubvencionesActividadesAnexoIX: Schema.Attribute.Media<'files', true>;
     SubvencionesActividadesAnexoX: Schema.Attribute.Media<'files', true>;
+    NombreAnexoI: Schema.Attribute.String;
+    NombreAnexoII: Schema.Attribute.String;
+    NombreAnexoIII: Schema.Attribute.String;
+    NombreAnexoIV: Schema.Attribute.String;
+    NombreAnexoV: Schema.Attribute.String;
+    NombreAnexoVI: Schema.Attribute.String;
+    NombreAnexoVII: Schema.Attribute.String;
+    NombreAnexoVIII: Schema.Attribute.String;
+    NombreAnexoIX: Schema.Attribute.String;
+    NombreAnexoX: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
