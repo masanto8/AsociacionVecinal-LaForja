@@ -127,5 +127,14 @@
         margin-left: 7%;
         margin-right: 7%;
     }
+
+    .asociacion-contacto{
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+    .mapa{
+        width: 90%; 
+    }
     
 }

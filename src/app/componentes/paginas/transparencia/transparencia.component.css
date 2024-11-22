@@ -12,6 +12,8 @@
     background-color: rgba(139, 139, 139, 0.701);
 }
 
+
+
 .nav-link{
     color: white;
     font-weight: 600;
@@ -232,6 +234,37 @@ select{
 
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 791px) {
+    .scrollsky-intern{
+        margin: 0px 100px;
+    }
+
+}
+
+@media only screen and (max-width: 656px) {
+    .scrollsky-intern{
+        margin: 0px 70px;
+    }
+
+}
+
+@media only screen and (max-width: 536px) {
+    .scrollsky-intern{
+        margin: 0px 40px;
+    }
+
+}
+
+@media only screen and (max-width: 416px) {
+    .scrollsky-intern{
+        margin: 0px 20px;
+    }
+
+}
+
+@media only screen and (max-width: 336px) {
+    .scrollsky-intern{
+        margin: 0px 0px;
+    }
 
 }
