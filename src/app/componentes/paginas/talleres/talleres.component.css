@@ -1,0 +1,16 @@
+.titulo{
+    margin-top: 5%;
+}
+
+.center{
+    text-align: center;
+    justify-content: center;
+}
+
+.year{
+    margin-top: 12px;
+}
+
+select{
+    margin-left: 4px; 
+}

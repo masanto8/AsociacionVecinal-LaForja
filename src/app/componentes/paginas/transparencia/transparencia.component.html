@@ -1,6 +1,6 @@
 
 <div>
-    <div class="titulo h-center">
+    <div class="titulo center">
         <h1>TRANSPARENCIA</h1>
         <div class="year">
             <label for="yearSelect">Año: </label>
@@ -38,7 +38,7 @@
                         <div class="cols tarjeta " id="scrollspyHeading1">
                             <div class="text-padding">
                                 <div>
-                                    <h4 class="subrayado text-align" >FUNCIONES Y NORMATIVA</h4>
+                                    <h4 class="subrayado text-align" >FUNCIONES Y NORMATIVA {{ trans.Anyo }}</h4>
                                     <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
                                     <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
                                         de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
@@ -75,7 +75,7 @@
                         <div class="cols tarjeta">
                             <div class="text-padding">
                                 <div>
-                                    <h4 class="subrayado text-align" id="scrollspyHeading2">INFORMACIÓN ECONÓMICA</h4>
+                                    <h4 class="subrayado text-align" id="scrollspyHeading2">INFORMACIÓN ECONÓMICA {{ trans.Anyo }}</h4>
                                     <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
                                     <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
                                         de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
@@ -112,7 +112,7 @@
                         <div class="cols tarjeta">
                             <div class="text-padding">
                                 <div>
-                                    <h4 class="subrayado text-align" id="scrollspyHeading3">SUBVENCIONES Y ACTIVIDADES</h4>
+                                    <h4 class="subrayado text-align" id="scrollspyHeading3">SUBVENCIONES Y ACTIVIDADES {{ trans.Anyo }}</h4>
                                     <h5>FUNCIONES que se desarrollan de acuerdo con sus estatutos:</h5>
                                     <p>Prospección pública de las actividades de asociacionismo y la creación de conciencia en materia
                                         de participación ciudadana. Dinamización del barrio y la ciudad por medio de la Asociación como
@@ -144,7 +144,7 @@
 
 
                 <div class="transparencia fondo-blanco">
-                    <h2 class="center" id="scrollspyHeading4">ANEXOS</h2>
+                    <h2 class="center" id="scrollspyHeading4">ANEXOS {{ trans.Anyo }}</h2>
                     <h4 class="center marg-bot">Subvenciones y Actividades</h4>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
                         <div class="col" *ngIf="trans.SubvencionesActividadesAnexoI && trans.SubvencionesActividadesAnexoI.length > 0">

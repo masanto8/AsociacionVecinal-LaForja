@@ -1,1 +1,12 @@
-<p>talleres works!</p>
+<div>
+    <div class="titulo center">
+        <h1>TALLERES</h1>
+        <div class="year">
+            <label for="yearSelect">Año: </label>
+            <select id="yearSelect" [value]="selectedYear" (change)="updateYear($event)">
+                <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+            </select>
+        </div>
+    </div>
+
+</div>

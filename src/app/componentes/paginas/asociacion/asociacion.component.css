@@ -1,0 +1,131 @@
+.titulo{
+    margin-top: 5%;
+}
+
+.center{
+    text-align: center;
+    justify-content: center;
+}
+
+.asociacion-contacto{
+    margin-top: 4%;
+    padding-top: 3%;
+    margin-left: 13%;
+    padding-left: 3%;
+    margin-right: 13%;
+    padding-right: 3%;
+    margin-bottom: 4%;
+    padding-bottom: 3%;
+}
+
+.asociacion-historia{
+    margin-top: 4%;
+    padding-top: 2%;
+    margin-left: 13%;
+    padding-left: 2%;
+    margin-right: 13%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+}
+
+.historia-titulo{
+    margin-top: 2%;
+    padding-top: 2%;
+    margin-left: 13%;
+    margin-right: 13%;
+    padding-bottom: 2%;
+}
+
+.tarjeta-contacto{
+    border: 10px solid #F8BE2D;
+}
+
+.logo{
+    width: 40%;
+}
+
+.mapa{
+    width: 500px;
+    height:400px;
+    border: none;
+}
+
+.correo{
+    color: rgba(17, 157, 164, 1);
+}
+
+.mapa:hover{
+    transform:  scale(1.1);
+    transition: transform 2s, 0.5s ease-in-out, box-shadow 2s, 0.5s ease-in-out;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cols{
+    display: flex;
+    flex-direction: row; 
+}
+
+.col1{
+    padding-right: 4%;
+}
+
+.historia-text{
+    text-align: justify;
+    font-size: large;    
+}
+
+.fondo-historia-container {
+    position: relative;
+    background-image: url('/assets/imagenes/Fondo-azul.png'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    padding-top: 40px; 
+    padding-bottom: 100px;/* Espaciado vertical para la sección */
+    width: 100%;
+}
+
+.container-historia{
+    background-color: white; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 1%;
+}
+
+@media only screen and (max-width: 1290px) {
+
+    .mapa{
+        width: 400px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .cols{
+        flex-direction: column; 
+    }  
+
+    .mapa{
+        width: 80%; 
+    }
+
+    .col1{
+        padding-right: 0%;
+        padding-bottom: 4%;
+    }
+    
+}
+
+@media only screen and (max-width: 800px) {
+    .container-historia{
+        border-radius: 0%;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    .asociacion-historia{
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    
+}
