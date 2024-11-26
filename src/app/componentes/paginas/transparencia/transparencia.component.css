@@ -55,6 +55,7 @@
 
 .subrayado{
     text-decoration: underline;
+    margin-bottom: 4%;
 }
 
 
@@ -100,6 +101,8 @@
     background-color: white;
     padding: 2%;
     margin-bottom: 4%;
+    min-height: 200px; /* Altura mínima opcional */
+    height: auto;
 }
 
 .text-align{
@@ -109,6 +112,13 @@
 .justify-but{
     display: flex;
     justify-content:left;
+    align-items: end;
+}
+
+.text-content{
+    flex-shrink: 0; /* Evita que el texto se reduzca */
+    flex-grow: 0; /* No expande el texto */
+    flex-basis: auto;
 }
 
 .text-padding{

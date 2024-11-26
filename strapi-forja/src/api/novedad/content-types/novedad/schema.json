@@ -44,6 +44,9 @@
     "ContenidoResumido": {
       "type": "richtext",
       "maxLength": 600
+    },
+    "EnlaceExterno": {
+      "type": "string"
     }
   }
 }

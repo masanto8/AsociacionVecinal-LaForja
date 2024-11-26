@@ -552,6 +552,7 @@ export interface ApiNovedadNovedad extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 600;
       }>;
+    EnlaceExterno: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -607,8 +608,7 @@ export interface ApiTallerTaller extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Anyo: Schema.Attribute.Integer & Schema.Attribute.Required;
-    Cartel: Schema.Attribute.Media<'images' | 'files', true> &
-      Schema.Attribute.Required;
+    Cartel: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
     NombreTaller: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
