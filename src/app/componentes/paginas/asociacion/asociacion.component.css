@@ -42,7 +42,12 @@
 }
 
 .logo{
-    width: 40%;
+    width: 50%;
+    margin-bottom: 4%;
+}
+
+.contenedor-mapa{
+    margin: auto;
 }
 
 .mapa{
@@ -61,13 +66,37 @@
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
+.insta{
+    font-size: 35px; /* Tamaño del icono */
+    color: #E4405F; /* Color típico de Instagram */
+    transition: color 0.3s ease;
+    margin-right: 12px;
+}
+
+.insta:hover{
+    color: #af3078;
+}
+
+.facebook-icon i {
+    font-size: 35px; /* Tamaño del icono */
+    color: #1877F2; /* Color típico de Facebook */
+    transition: color 0.3s ease;
+    margin-left: 12px;
+}
+  
+.facebook-icon i:hover {
+    color: #1254ab; /* Color más oscuro al pasar el mouse */
+}
+
 .cols{
     display: flex;
     flex-direction: row; 
 }
 
 .col1{
-    padding-right: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2% 4% 4% 4%;
 }
 
 .historia-text{
@@ -95,7 +124,7 @@
 @media only screen and (max-width: 1290px) {
 
     .mapa{
-        width: 400px;
+        width: 370px;
         height: 300px;
     }
 }
@@ -105,14 +134,23 @@
         flex-direction: column; 
     }  
 
+    .col1{
+        padding: 4% 4% 7% 4%;
+    }
+
+    .contenedor-mapa{
+        margin: 0px;
+        padding-bottom: 4%;
+    }
+
     .mapa{
         width: 80%; 
     }
 
-    .col1{
-        padding-right: 0%;
-        padding-bottom: 4%;
+    .logo{
+        width: 60%;
     }
+
     
 }
 

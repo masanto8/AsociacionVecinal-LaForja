@@ -1,9 +1,10 @@
 
 .transparencia{
-    padding-top: 4%;
+    padding-top: 6%;
     padding-left: 15%;
     padding-right: 15%;
-    padding-bottom: 2%;
+    padding-bottom: 6%;
+    
 }
 
 .scrollsky{
@@ -161,7 +162,7 @@ select{
 }
 
 .marg-bot{
-    margin-bottom: 3%;
+    margin-bottom: 4%;
 }
 
 .card{

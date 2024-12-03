@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 interface Taller {
   Anyo: number;
   NombreTaller: string;
-  Cartel: 'image/jpeg' | 'image/png' | 'application/pdf';
+  Cartel: { url: string }[];
 }
 @Component({
   selector: 'app-talleres',
@@ -17,7 +17,8 @@ export class TalleresComponent implements OnInit{
   filteredTaller: Taller[] = [];       // Transparencia filtrada por año
   availableYears: number[] = [];     // Años disponibles
   selectedYear: number | null = null;
-  private readonly BASE_URL = 'http://localhost:1337';
+  BASE_URL = 'http://localhost:1337';
+  imageLoaded: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -27,7 +28,7 @@ export class TalleresComponent implements OnInit{
   }
 
   fetchTallerData(): void {
-    this.http.get<{ data: Taller[] }>('http://localhost:1337/api/talleres')
+    this.http.get<{ data: Taller[] }>('http://localhost:1337/api/talleres?populate=*')
       .subscribe({
         next: (response) => {
           this.taller = response.data;
@@ -57,6 +58,11 @@ export class TalleresComponent implements OnInit{
     if (this.selectedYear !== null) {
       this.filteredTaller = this.taller.filter(item => item.Anyo === this.selectedYear);
     }
+  }
+
+  onImageLoad(): void {
+    // Activa la clase `visible` al cargar la imagen
+    this.imageLoaded = true;
   }
 
 }

@@ -1,9 +1,14 @@
 .titulo{
-    margin-top: 5%;
+    padding-top: 5%;
 }
 
 .center{
     text-align: center;
+
+}
+
+.center-taller{
+    display: flex;
     justify-content: center;
 }
 
@@ -13,4 +18,66 @@
 
 select{
     margin-left: 4px; 
+}
+
+.font-text{
+    font-family: 'Windsong';
+    font-weight: bold;
+}
+
+.color-bkg{
+    background: linear-gradient(rgba(248, 190, 45, 1), rgba(102, 0, 161, 1),rgba(17, 157, 164, 1), white);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.text-white{
+    color:white;
+}
+
+.contenido-talleres{
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
+
+.row{
+    margin: 0px;
+}
+
+.col{
+    padding: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.taller-card{
+    border-radius: 0%;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    border: 15px solid white;
+
+}
+
+.taller-imagen{
+    width: 100%;
+    max-height: 70vh;
+    
+    filter: brightness(0); /* Empieza completamente negra */
+    transition: filter 2s ease-in-out; /* Transición suave de 1.5 segundos */
+    opacity: 0;
+}
+  /* Una clase activa para iniciar la animación */
+.taller-imagen.visible {
+    filter: brightness(1); /* Imagen normal */
+    opacity: 1;
+}
+
+.nombre-taller{
+    background-color: white;
+    padding: 6% 3% 3% 3%;
+    text-align: center;
+    margin-bottom: 0px;
 }
