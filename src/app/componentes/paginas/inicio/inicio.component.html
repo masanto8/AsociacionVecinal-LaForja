@@ -4,6 +4,62 @@
     <div class="titulo center">
         <h1>Últimas Novedades</h1>
     </div>
+    <div class="contenido-novedades columnas">
+        <form class=" buscador" role="search" >
+            <input class="form-search" type="search" placeholder="Buscador de novedades..." aria-label="Search" 
+            name="searchTerm" > 
+        </form>
+
+        <div class="contenedor-botones">
+            <button class="botones boton-orden">
+                <i class="bi bi-sort-down-alt"></i> Ordenar
+            </button>
+            <div class="dropdown">
+                <button class="botones boton-filtro" (click)="toggleDropdown()">
+                    <i class="bi bi-funnel-fill"></i> Filtrar
+                </button>
+    
+                <div class="dropdown-menu" [class.show]="isDropdownOpen">
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="todas"
+                        (change)="selectAll($event)"
+                        [checked]="areAllSelected()"
+                      />
+                      <label for="todas">Todas</label>
+                    </div>
+                    <div *ngFor="let tipo of tipos">
+                      <input
+                        type="checkbox"
+                        [id]="tipo"
+                        [value]="tipo"
+                        (change)="onCheckboxChange($event)"
+                        [checked]="selectedTipos.includes(tipo)"
+                      />
+                      <label [for]="tipo">{{ tipo }}</label>
+                    </div>
+                </div> 
+            </div>
+            
+        </div> 
+
+
+        <div class="row section">
+            <ng-container *ngIf="filteredNovedades.length > 0">
+                <ng-container *ngFor="let novedades of filteredNovedades">
+                    <div class="col">
+                        <div class="novedades-card">
+                            <img [src]="BASE_URL + (novedades.Multimedia[0].url)" alt="{{ novedades.Titulo }}" class="taller-imagen" />
+                            <h3 class="nombre-taller font-text">{{ novedades.Titulo }}</h3>
+                        </div>
+                    </div>
+                    
+                </ng-container>
+            </ng-container>
+        </div>
+
+    </div>
     
 </div>
 
