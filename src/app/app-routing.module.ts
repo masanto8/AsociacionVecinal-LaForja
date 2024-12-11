@@ -13,7 +13,7 @@ import { AdminRedirectComponent } from './componentes/admin-redirect/admin-redir
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
-  { path: 'informacion', component: InfoComponent },
+  { path: 'novedades', component: InfoComponent },
   { path: 'talleres', component: TalleresComponent },
   { path: 'asociacion', component: AsociacionComponent },
   { path: 'transparencia', component: TransparenciaComponent },

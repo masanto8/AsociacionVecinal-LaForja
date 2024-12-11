@@ -4,7 +4,8 @@ html, body {
    padding: 0;
    display: flex;
    flex-direction: column;
-
+   scroll-snap-type: y mandatory; /* Habilita el scroll en "snaps" */
+   scroll-behavior: smooth;
 
 }
 

@@ -3,7 +3,7 @@
 #scrollToTopBtn {
     position: -webkit-sticky;
     position: sticky;
-    left: 90%;
+    left: 92%;
     bottom: 25px;
     display: flex;
     justify-content: center;
@@ -47,13 +47,21 @@
 
 @media only screen and (max-width: 1300px) {
     #scrollToTopBtn {
-        left: 92%;
+        left: 90%;
     }
 }
 
 @media only screen and (max-width: 870px) {
     #scrollToTopBtn {
         left: 90%;
+        width: 48px; /* Tamaño del círculo */
+        height: 46px;
+        bottom: 30px;
+    }
+    
+    #scrollToTopBtn i {
+        font-size: 50px; /* Tamaño del ícono */
+ 
     }
 }
 
@@ -65,14 +73,21 @@
 
 @media only screen and (max-width: 565px) {
     #scrollToTopBtn {
-        left: 85%;
-        width: 48px; /* Tamaño del círculo */
-        height: 46px;
+        left: 88%;
+        width: 38px; /* Tamaño del círculo */
+        height: 36px;
         bottom: 30px;
     }
     
     #scrollToTopBtn i {
-        font-size: 50px; /* Tamaño del ícono */
+        font-size: 40px; /* Tamaño del ícono */
  
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #scrollToTopBtn {
+        left: 84%;
+
     }
 }

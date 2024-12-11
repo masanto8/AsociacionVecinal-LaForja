@@ -39,7 +39,7 @@ export class JuntaComponent implements OnInit{
   }
 
   fetchJuntaData(): void {
-    this.http.get<{ data: Junta[] }>('http://localhost:1337/api/juntas')
+    this.http.get<{ data: Junta[] }>('http://localhost:1337/api/juntas?populate=*')
       .subscribe({
         next: (response) => {
           this.junta = response.data;

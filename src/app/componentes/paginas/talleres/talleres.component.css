@@ -28,7 +28,7 @@ select{
 .color-bkg{
     background: linear-gradient(rgba(248, 190, 45, 1), rgba(102, 0, 161, 1),rgba(17, 157, 164, 1), white);
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 283px);
 }
 
 .text-white{
@@ -80,4 +80,23 @@ select{
     padding: 6% 3% 3% 3%;
     text-align: center;
     margin-bottom: 0px;
+}
+
+ 
+@media only screen and (max-width: 630px) {
+    .color-bkg{
+        min-height: calc(100vh - 330px);
+    }
+}
+
+@media only screen and (max-width: 544px) {
+    .color-bkg{
+        min-height: calc(100vh - 351px);
+    }
+}
+
+@media only screen and (max-width: 324px) {
+    .color-bkg{
+        min-height: calc(100vh - 375px);
+    }
 }

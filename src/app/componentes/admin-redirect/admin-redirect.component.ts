@@ -8,7 +8,7 @@ export class AdminRedirectComponent implements OnInit{
   constructor() { }
 
   ngOnInit(): void {
-    window.location.href = 'https://localhost:1337/admin';
+    window.location.href = 'http://localhost:1337/admin';
   }
 
 }

@@ -1,5 +1,5 @@
 .titulo{
-    margin-top: 5%;
+    margin-top: 6%;
 }
 
 .center{
@@ -10,13 +10,14 @@
 .contenido-novedades{
     padding-left: 15%;
     padding-right: 15%;
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 .columnas{
     display: flex;
     flex-direction:row;
     width: 100%;
+    margin-bottom: 4%;
 }
 
 .buscador{
@@ -84,6 +85,125 @@
   
 .dropdown-menu input[type='checkbox'] {
     margin-right: 10px;
+}
+
+.novedades-card{
+    position: relative;
+    padding: 3%;
+    overflow: hidden;
+    border: none;
+    margin-bottom: 4%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    background-color: #f4f4f4d2;
+    
+}
+
+.novedades-card:hover {
+    transform: scale(1.05);
+}
+
+.linea {
+    position: absolute;
+    background-color: blue;
+    transition: transform 0.3s ease-in-out;
+}
+
+.linea-azul {
+    background-color: blue;
+}
+
+.linea-roja {
+    background-color: red;
+}
+
+.linea-verde {
+    background-color: rgb(150, 223, 42);
+}
+
+.linea-amarilla {
+    background-color: yellow;
+}
+
+
+/* Línea superior izquierda */
+.linea-arriba-derecha {
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 4px; /* Grosor de línea */
+    
+}
+  
+  /* Línea inferior derecha */
+.linea-abajo-derecha {
+    bottom: 0;
+    right: 0;
+    width: 4px; /* Grosor de línea */
+    height: 100%;
+}
+  
+  /* Línea superior derecha */
+.linea-arriba-izquierda {
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+
+}
+  
+  /* Línea inferior izquierda */
+.linea-abajo-izquierda {
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 4px;
+}
+
+
+.novedades-card:hover .linea-arriba-derecha {
+    transform: scaleX(10);
+    transform-origin: left right;
+}
+  
+.novedades-card:hover .linea-abajo-izquierda {
+    transform: scaleX(10);
+    transform-origin: right left;
+}
+  
+
+  /* Estilo para Noticias */
+.tarjeta-noticia {
+    background-color: #f0f8ff; /* Color claro para noticias */
+    border-color: #1e90ff;
+}
+  
+  /* Estilo para Eventos */
+.tarjeta-evento {
+    background-color: #ffe4e1; /* Color claro para eventos */
+    border-color: #ff4500;
+}
+  
+  /* Estilo para Juntas */
+.tarjeta-junta {
+    background-color: #f5fffa; /* Color claro para juntas */
+    border-color: #32cd32;
+}
+  
+  /* Estilo para Reuniones */
+.tarjeta-reunion {
+    background-color: #fffacd; /* Color claro para reuniones */
+    border-color: #ffd700;
+}
+
+.enlace {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+  
+.enlace:hover {
+    color: #0056b3;
 }
 
 @media only screen and (max-width: 1120px) {
