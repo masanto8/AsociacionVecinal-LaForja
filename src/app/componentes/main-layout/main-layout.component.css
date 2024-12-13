@@ -111,10 +111,11 @@ html, body {
 }
  
 .pie-content{
-   padding: 20px 10px;
+   padding: 20px 10%;
    border-bottom: 1px solid white;
    display: flex;
    flex-direction: row;  
+   align-items: center;
 }
 
 .enlace-logo-pie{
@@ -140,20 +141,33 @@ html, body {
    display: flex;
    flex-direction: row;
    align-items: center;
+   margin-left: 15%;
 }
- 
-.minicol1{
+
+.links-pie{
    display: flex;
-   flex-direction: row;  
+   justify-content: center;
+   width: 70%;
 }
- 
-.minicol2{
+
+.social{
+   margin-left: 10%;
+}
+
+.social-1{
+   display: none;
+}
+
+.social-2{
    display: flex;
-   flex-direction: row;
 }
- 
-.margin-left{
-   margin-left: 20%;
+
+.icon-social{
+   font-size: 35px;
+}
+
+.facebook{
+   margin-left: 20px;
 }
  
 .mrg-but{
@@ -162,10 +176,6 @@ html, body {
  
 @media only screen and (max-width: 1400px) {
  
-   .margin-left{
-      margin-left: 15%;
-   }
-
    .mrg-pie{
       margin-right: 10%;
    }
@@ -173,52 +183,47 @@ html, body {
  
  
 @media only screen and (max-width: 1150px) {
- 
-   .margin-left{
-      margin-left: 0%;
+
+
+   .links-pie{
+      width: 60%;
    }
 
-   .col{
-      margin-left: 20%;
-   }
- 
-   .minicol1{
-      flex-direction: column;  
-   }
- 
-   .minicol2{
-      flex-direction: column;
-      padding-left: 20%;
-   }
  
  }
  
 @media only screen and (max-width: 768px) {
  
    .col{
-      margin-left: 15%;
+      margin-left: 10%;
    }
- 
-   .minicol2{
-      padding-left: 15%;
+
+   .icon-social{
+      font-size: 30px;
    }
  
 }
  
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 574px) {
  
    .col{
       flex-direction: column;
-      margin-left: 20%;
+      margin-left: 25%;
       align-items: start;
    }
  
-   .minicol1{
-      margin-left: 0;
+   .social-1{
+      display: flex;
    }
- 
-   .minicol2{
-      padding-left: 0;
+
+   .social-2{
+      display: none;
+   }
+
+   .social{
+      margin-left: 10%;
+      justify-content: center;
+      margin-top: 10px;
    }
  
    .imag{
@@ -226,6 +231,11 @@ html, body {
       align-items: center;
       margin-top: 25px;
    }
+
+   .pie-content{
+      padding: 20px 10%;
+   }
+
 
 }
  
@@ -246,13 +256,21 @@ html, body {
    .linea-superior2 {
       display: contents;
    }
+
+   .pie-content{
+      padding-left: 9%;
+   }
  
    .col{
-      margin-left: 10%;
+      margin-left: 18%;
    }
  
    .mrg-but, .mr{
       margin-right: 5%;
+   }
+
+   .pie p {
+      padding: 10px 40px; 
    }
  
 }
@@ -262,6 +280,19 @@ html, body {
 
    .logo-pie{
       height: 75px; 
+   }
+
+   
+   .pie-content{
+      padding-left: 6%;
+   }
+ 
+   .col{
+      margin-left: 12%;
+   }
+
+   .pie p {
+      padding: 10px 25px; 
    }
 
 }
