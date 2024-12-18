@@ -39,6 +39,13 @@
 
 .buton-morado{
     background-color: rgb(102, 0, 161);
+}
+
+.buton-azul{
+    background-color: rgb(17, 157, 164);
+}
+
+.buton{
     border: none;
     padding: 10px 20px;
     border-radius: 25px;
