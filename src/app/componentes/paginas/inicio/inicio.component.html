@@ -2,28 +2,164 @@
 
 <div>
 
-    <div class="contenido-novedades">
-
-        <div class="section">
-            <ng-container *ngIf="filteredNovedades && filteredNovedades.length > 0">
-                <ng-container *ngFor="let novedades of filteredNovedades">
-                    <div class="col">
-                        <div class="novedades-card" >  
-                            <div class="linea linea-arriba-izquierda" [ngClass]="getCardClass(novedades.Tipo)"></div>
-                            <div class="linea linea-abajo-derecha" [ngClass]="getCardClass(novedades.Tipo)"></div>
-                            <div class="linea linea-arriba-derecha" [ngClass]="getCardClass(novedades.Tipo)"></div>
-                            <div class="linea linea-abajo-izquierda" [ngClass]="getCardClass(novedades.Tipo)"></div>
-                            <h3 class="nombre-taller font-text">{{ novedades.Titulo }}</h3>
-                            <P [innerHTML]="novedades.ContenidoResumido"></P>
-                            <P [innerHTML]="novedades.Contenido"></P>
-                            <a href="{{ novedades.EnlaceExterno }}" target="_blank" rel="noopener noreferrer" class="enlace">Enlace Externo</a>
-                            <img *ngIf="novedades?.Multimedia?.length > 0" [src]="BASE_URL + (novedades.Multimedia[0].url)" alt="{{ novedades.Titulo }}" class="taller-imagen" />
+    <div class=" titulo center ">
+        <h1 class="color-letra-azul">¿Cómo trabajamos?</h1>
+        <div class="row row-cols-1 row-cols-md-2 g-4 trajetas-trabajo contenido-novedades">
+            <div class="col">
+                <div class="card h-100 shadow-box-blue">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">1</h2>
+                            <h4 class="card-title">Trasládanos tu problema</h4>
                         </div>
-                    </div>        
-                </ng-container>
-            </ng-container>
+                        <p>Cualquier persona puede ponerse en contacto con nosotros a través del correo de la asociación 
+                            o en persona en nuestro local.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-box-blue">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">2</h2>
+                            <h4 class="card-title">Abordar dicho problema</h4>
+                        </div>
+                        <p>Una vez nos haceis llegar una queja o problema del municipio, evaluamos cómo incidir en él para que tenga una buena solución.</p>  
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-box-blue">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">3</h2>
+                            <h4 class="card-title">Trabajarlo a fondo</h4>
+                        </div>
+                        <p>Dependiendo del tipo de problema que nos trasladéis, puede necesitar más o menos tiempo de dedicación.</p> 
+                        <p>Reuniones, plenos del Ayuntamiento, escritos de prensa...</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-box-blue">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">4</h2>
+                            <h4 class="card-title">Nuestros avances</h4>
+                        </div>
+                        <p>Desde la asociación mantendremos el contacto con aquellos que nos trasladen sus problemas, 
+                            pero podréis ir revisando nuestros avances desde la página de Novedades, así como en redes sociales,
+                             donde iremos publicándo las reuniones y los avances que logremos.</p>  
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="titulo center bk-color-mostaza">
+        <h1 class="">Temas principales</h1>
+        <div class="row row-cols-1 row-cols-md-2 g-4 trajetas-trabajo contenido-novedades">
+            <div class="col">
+                <div class="card h-100 shadow-box">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">1</h2>
+                            <h4 class="card-title">Trasládanos tu problema</h4>
+                        </div>
+                        <p>Cualquier persona puede ponerse en contacto con nosotros a través del correo de la asociación 
+                            o en persona en nuestro local.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-box">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">2</h2>
+                            <h4 class="card-title">Abordar dicho problema</h4>
+                        </div>
+                        <p>Una vez nos haceis llegar una queja o problema del municipio, evaluamos cómo incidir en él para que tenga una buena solución.</p>  
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-box">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">3</h2>
+                            <h4 class="card-title">Trabajarlo a fondo</h4>
+                        </div>
+                        <p>Dependiendo del tipo de problema que nos trasladéis, puede necesitar más o menos tiempo de dedicación.</p> 
+                        <p>Reuniones, plenos del Ayuntamiento, escritos de prensa...</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 shadow-box">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h2 class="circulo">4</h2>
+                            <h4 class="card-title">Nuestros avances</h4>
+                        </div>
+                        <p>Desde la asociación mantendremos el contacto con aquellos que nos trasladen sus problemas, 
+                            pero podréis ir revisando nuestros avances desde la página de Novedades, así como en redes sociales,
+                             donde iremos publicándo las reuniones y los avances que logremos.</p>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" titulo center ">
+        <h1 class="color-letra-mor">Novedades</h1>
+        <div class="row row-cols-1 row-cols-md-2 g-4 trajetas-trabajo contenido-novedades">
+            <div class="col mb">
+                <div class="card h-100 w shadow-box-purp">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h4 class="card-title">Reuniones</h4>
+                        </div>
+                        <p>Publicamos en nuestra página y en redes sociales las reuniones importanes que hacemos y los temas tratados en ellas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb">
+                <div class="card h-100 w shadow-box-purp">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h4 class="card-title">Eventos</h4>
+                        </div>
+                        <p>Anunciamos los eventos que se organizan desde la Asociación o en los que participamos, también publicamos los carteles para dichos eventos.</p>  
+                    </div>
+                </div>
+            </div>
+            <div class="col mb">
+                <div class="card h-100 w shadow-box-purp">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h4 class="card-title">Noticias</h4>
+                        </div>
+                        <p>En la página compartimos noticias sobre temas interesantes del municipio y otros sobre los que estamos trabajando.</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="col mb">
+                <div class="card h-100 w shadow-box-purp">
+                    <div class="card-body center">
+                        <div class="titulo-tarjeta">
+                            <h4 class="card-title">Junta</h4>
+                        </div>
+                        <p>Nos reunimos semanalmente para tratar todos los temas que nos traladais a la Asociación, 
+                            así como para informar a otros miembros de los avances y reuniones que se han realizado durante la semana.</p>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="buton-morado" href="novedades" routerLink="/novedades">Ver Novedades</button>
+        </div>
+    </div>
+
     
     
 </div>
