@@ -97,12 +97,9 @@ export class TransparenciaComponent implements OnInit{
       });
   }
 
-  updateYear(event: Event): void {
-    const target = event.target as HTMLSelectElement | null; // Especificar tipo
-    if (target) {
-      this.selectedYear = +target.value; // Convierte el valor a número
-      this.filterTransparencia();
-    }
+  onYearChange(year: number): void {
+    this.selectedYear = year;
+    this.filterTransparencia();
   }
 
   filterTransparencia(): void {

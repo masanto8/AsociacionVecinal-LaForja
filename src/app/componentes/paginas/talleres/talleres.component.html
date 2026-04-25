@@ -2,10 +2,12 @@
     <div class="titulo center">
         <h1 class="font-text text-white">Talleres</h1>
         <div class="year text-white">
-            <label for="yearSelect">Año: </label>
-            <select id="yearSelect" [value]="selectedYear" (change)="updateYear($event)">
-                <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
-            </select>
+            <label  class="mr-2" for="yearSelect">Año: </label>
+            <app-selector
+                [options]="availableYears"
+                [selected]="selectedYear"
+                (selectionChange)="onYearChange($event)">
+            </app-selector>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-lg-2  contenido-talleres section">

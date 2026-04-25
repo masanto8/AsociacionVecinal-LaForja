@@ -4,9 +4,11 @@
         <h1>TRANSPARENCIA</h1>
         <div class="year">
             <label for="yearSelect">Año: </label>
-            <select id="yearSelect" [value]="selectedYear" (change)="updateYear($event)">
-                <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
-            </select>
+            <app-selector
+                [options]="availableYears"
+                [selected]="selectedYear"
+                (selectionChange)="onYearChange($event)">
+            </app-selector>
         </div>
     </div>
 

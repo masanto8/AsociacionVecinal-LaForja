@@ -1,0 +1,20 @@
+<div class="select-container">
+
+  <!-- cabecera -->
+  <div class="select-header" (click)="toggle()">
+    {{ selected ?? '' }}
+    <i class="bi bi-chevron-down arrow" [class.open]="isOpen"></i>
+  </div>
+
+  <!-- dropdown -->
+  <div class="select-dropdown" *ngIf="isOpen">
+
+    <div class="option"
+         *ngFor="let option of options"
+         (click)="selectOption(option)">
+      {{ option }}
+    </div>
+
+  </div>
+
+</div>
