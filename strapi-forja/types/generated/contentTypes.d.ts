@@ -661,6 +661,29 @@ export interface ApiTransparenciaTransparencia
     NombreAnexoVIII: Schema.Attribute.String;
     NombreAnexoIX: Schema.Attribute.String;
     NombreAnexoX: Schema.Attribute.String;
+    NombreAnexoXI: Schema.Attribute.String;
+    NombreAnexoXII: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXI: Schema.Attribute.Media<'files', true>;
+    SubvencionesActividadesAnexoXII: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXIII: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXIII: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXIV: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXIV: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXV: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXV: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXVI: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXVI: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    NombreAnexoXVII: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXVII: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXVIII: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXVIII: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXIX: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXIX: Schema.Attribute.Media<'files', true>;
+    NombreAnexoXX: Schema.Attribute.String;
+    SubvencionesActividadesAnexoXX: Schema.Attribute.Media<'files', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

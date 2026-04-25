@@ -5,11 +5,10 @@ html, body {
    display: flex;
    overflow: hidden;
    flex-direction: column;
-   scroll-snap-type: y mandatory; /* Habilita el scroll en "snaps" */
+   scroll-snap-type: y mandatory; 
    scroll-behavior: smooth;
 
 }
-
  
 .main{
    display: flex;
@@ -21,8 +20,6 @@ html, body {
    margin-top: 98px;
    flex: 1; 
 }
-
-
 
 .color-bar {
    background-color: black; 

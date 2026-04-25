@@ -150,6 +150,111 @@
     },
     "NombreAnexoX": {
       "type": "string"
+    },
+    "NombreAnexoXI": {
+      "type": "string"
+    },
+    "NombreAnexoXII": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXI": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "SubvencionesActividadesAnexoXII": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "NombreAnexoXIII": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXIII": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXIV": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXIV": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXV": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXV": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXVI": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXVI": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXVII": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXVII": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXVIII": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXVIII": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXIX": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXIX": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "NombreAnexoXX": {
+      "type": "string"
+    },
+    "SubvencionesActividadesAnexoXX": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

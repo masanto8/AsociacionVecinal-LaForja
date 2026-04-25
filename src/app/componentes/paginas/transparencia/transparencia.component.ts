@@ -6,32 +6,20 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 interface PdfFile {
   url: string;
 }
+
+interface Anexo {
+  nombre: string;
+  titulo?: string;
+  url: string;
+}
 interface Transparencia {
   Anyo: number;
   InformacionEconomica?: PdfFile[];
   FuncionesNormativa?: PdfFile[];
   SubvencionesActividades?: PdfFile[];
-  SubvencionesActividadesAnexoI?: PdfFile[];
-  SubvencionesActividadesAnexoII?: PdfFile[];
-  SubvencionesActividadesAnexoIII?: PdfFile[];
-  SubvencionesActividadesAnexoIV?: PdfFile[];
-  SubvencionesActividadesAnexoV?: PdfFile[];
-  SubvencionesActividadesAnexoVI?: PdfFile[];
-  SubvencionesActividadesAnexoVII?: PdfFile[];
-  SubvencionesActividadesAnexoVIII?: PdfFile[];
-  SubvencionesActividadesAnexoIX?: PdfFile[];
-  SubvencionesActividadesAnexoX?: PdfFile[];
-  NombreAnexoI?: string;
-  NombreAnexoII?: string;
-  NombreAnexoIII?: string;
-  NombreAnexoIV?: string;
-  NombreAnexoV?: string;
-  NombreAnexoVI?: string;
-  NombreAnexoVII?: string;
-  NombreAnexoVIII?: string;
-  NombreAnexoIX?: string;
-  NombreAnexoX?: string;
+  anexos?: Anexo[];
 }
+
 @Component({
   selector: 'app-transparencia',
   templateUrl: './transparencia.component.html',
@@ -55,18 +43,53 @@ export class TransparenciaComponent implements OnInit{
     this.fetchTransparenciaData();
   }
 
+  hasSection(trans: Transparencia, key: keyof Transparencia): boolean {
+    const value = trans[key] as any;
+    return value && value.length > 0;
+  }
+
+  getAnexos(trans: Transparencia): Anexo[] {
+    const anexos: Anexo[] = [];
+
+    const romanos = [
+      'I','II','III','IV','V','VI','VII','VIII','IX','X',
+      'XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'
+    ];
+
+    romanos.forEach((r) => {
+      const key = `SubvencionesActividadesAnexo${r}` as keyof Transparencia;
+      const nombreKey = `NombreAnexo${r}` as keyof Transparencia;
+
+      const archivos = trans[key] as PdfFile[] | undefined;
+      const titulo = trans[nombreKey] as string | undefined;
+
+      if (archivos && archivos.length > 0) {
+        anexos.push({
+          nombre: `Anexo ${r}`,
+          titulo,
+          url: archivos[0].url
+        });
+      }
+    });
+
+    return anexos;
+  }
+
   fetchTransparenciaData(): void {
     this.http.get<{ data: Transparencia[] }>('http://localhost:1337/api/transparencias?populate=*')
       .subscribe({
         next: (response) => { 
-          this.transparencia = response.data;
+          this.transparencia = response.data.map(trans => ({
+            ...trans,
+            anexos: this.getAnexos(trans)
+          }));
 
-          // Extraemos los años y los ordenamos de mayor a menor
-          this.availableYears = [...new Set(this.transparencia.map(item => item.Anyo))].sort((a, b) => b - a).slice(0, 5);
+          this.availableYears = [...new Set(this.transparencia.map(item => item.Anyo))]
+            .sort((a, b) => b - a)
+            .slice(0, 5);
 
-          // Establecemos el año más reciente como seleccionado por defecto
           this.selectedYear = this.availableYears[0];
-          this.filterTransparencia();  // Filtramos los datos para el año más reciente
+          this.filterTransparencia();
         },
         error: (error) => {
           console.error('Error fetching data from Strapi:', error);
@@ -90,16 +113,14 @@ export class TransparenciaComponent implements OnInit{
 
   // Función para mostrar el PDF correspondiente
   showDocument(url: string): void {
-    const completeUrl = url.startsWith('/') ? `${this.BASE_URL}${url}` : url;
-    this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(completeUrl);
-    this.showPdf = true;
+    const completeUrl = url.startsWith('/') 
+      ? `${this.BASE_URL}${url}` 
+      : url;
+
+    window.open(completeUrl, '_blank');
   }
 
-  // Función para ocultar el PDF
-  hideDocument(): void {
-    this.showPdf = false;
-    this.pdfUrl = null;
-  }
+
 
   //Función para el scrollsky
   scrollTo(id: string, event: Event): void {

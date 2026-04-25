@@ -12,24 +12,23 @@
 
     <nav id="navbar-example2" class="navbar scrollsky">    
         <ul class="nav nav-pills center scrollsky-intern">
-          <li class="nav-item scrollsky-intern">
+          <li class="nav-item scrollsky-intern" *ngIf="filteredTransparencia[0] && hasSection(filteredTransparencia[0], 'FuncionesNormativa')">
             <a class="nav-link " href="#scrollspyHeading1" (click)="scrollTo('scrollspyHeading1', $event)">Funciones y Normativa</a>
           </li>
-          <li class="nav-item scrollsky-intern">
+          <li class="nav-item scrollsky-intern" *ngIf="filteredTransparencia[0] && hasSection(filteredTransparencia[0], 'InformacionEconomica')">
             <a class="nav-link" href="#scrollspyHeading2" (click)="scrollTo('scrollspyHeading2', $event)">Información Económica</a>
           </li>
-          <li class="nav-item scrollsky-intern">
+          <li class="nav-item scrollsky-intern" *ngIf="filteredTransparencia[0] && hasSection(filteredTransparencia[0], 'SubvencionesActividades')">
             <a class="nav-link" href="#scrollspyHeading3" (click)="scrollTo('scrollspyHeading3', $event)">Subvenciones y Actividades</a>
           </li>
-          <li class="nav-item scrollsky-intern">
+          <li class="nav-item scrollsky-intern" *ngIf="filteredTransparencia[0]?.anexos?.length">
             <a class="nav-link" href="#scrollspyHeading4" (click)="scrollTo('scrollspyHeading4', $event)">Anexos</a>
           </li>
         </ul>
     </nav>
 
 
-    <div data-bs-spy="scroll" 
-    data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"  tabindex="0">
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"  tabindex="0">
         <ng-container *ngIf="filteredTransparencia && filteredTransparencia.length > 0">
             <ng-container *ngFor="let trans of filteredTransparencia">
                 <div class="transparencia fondo-gris ">
@@ -50,14 +49,6 @@
                                     <button class="hover-morado" (click)="showDocument(trans.FuncionesNormativa[0].url)">Ver Documento</button>
                                 </div>
                                 
-                                <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                                    <div class="modal-content" (click)="$event">
-                                    <!-- Botón para cerrar el modal -->
-                                        <button class="modal-close-button" (click)="hideDocument()">X</button>
-                                    <!-- PDF mostrado en el modal -->
-                                        <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="degradado-morado tam-imag">
@@ -83,15 +74,6 @@
                                     <button class="hover-mostaza" (click)="showDocument(trans.InformacionEconomica[0].url)">Ver Documento</button>
                                 </div>
                             
-                            
-                                <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                                    <div class="modal-content" (click)="$event">
-                                    <!-- Botón para cerrar el modal -->
-                                        <button class="modal-close-button" (click)="hideDocument()">X</button>
-                                    <!-- PDF mostrado en el modal -->
-                                        <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
-                                    </div>
-                                </div>
                             </div>
                             <div  class="degradado-mostaza tam-imag">
                                 <img src="assets/imagenes/informacionEconomica.jpg" class="degradado trans-img" alt="Información Económica">
@@ -117,14 +99,7 @@
                                 <div class="justify-but">
                                     <button class="hover-azul" (click)="showDocument(trans.SubvencionesActividades[0].url)">Ver Documento</button>
                                 </div>
-                                <div *ngIf="showPdf" class="modal-backdrop" (click)="hideDocument()">
-                                    <div class="modal-content" (click)="$event">
-                                    <!-- Botón para cerrar el modal -->
-                                        <button class="modal-close-button" (click)="hideDocument()">X</button>
-                                    <!-- PDF mostrado en el modal -->
-                                        <object [data]="pdfUrl" type="application/pdf" width="100%" height="100%"></object>
-                                    </div>
-                                </div>
+
                             </div>
                             <div  class="degradado-azul tam-imag">
                                 <img src="assets/imagenes/SubvencionesActividades2.jpg" class="degradado trans-img" alt="Subvenciones y Actividades">
@@ -134,121 +109,22 @@
                 </div>
 
 
-
-                <div class="transparencia fondo-blanco">
+                <div class="transparencia fondo-blanco" *ngIf="trans.anexos && trans.anexos.length > 0">
                     <h2 class="center" id="scrollspyHeading4">ANEXOS {{ trans.Anyo }}</h2>
                     <h4 class="center marg-bot">Subvenciones y Actividades</h4>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoI && trans.SubvencionesActividadesAnexoI.length > 0">
+                        <div class="col" *ngFor="let anexo of trans.anexos">
                             <div class="card h-100">
                                 <div class="card-body center">
-                                    <h5 class="card-title">Anexo I - {{ trans.NombreAnexoI }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoI[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>   
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoII && trans.SubvencionesActividadesAnexoII.length > 0">
-                          <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo II - {{ trans.NombreAnexoII }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoII[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button> 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoIII && trans.SubvencionesActividadesAnexoIII.length > 0">
-                            <div class="card h-100">                        
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo III - {{ trans.NombreAnexoIII }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoIII[0].url)">
+                                    <h5 class="card-title">
+                                        {{ anexo.nombre }} - {{ anexo.titulo || 'Sin título' }}
+                                    </h5>
+                                    <button class="anexo-boton" (click)="showDocument(anexo.url)">
                                         <i class="bi bi-filetype-pdf"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoIV && trans.SubvencionesActividadesAnexoIV.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo IV - {{ trans.NombreAnexoIV }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoIV[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoV && trans.SubvencionesActividadesAnexoV.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo V - {{ trans.NombreAnexoV }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoV[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoVI && trans.SubvencionesActividadesAnexoVI.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo VI - {{ trans.NombreAnexoVI }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoVI[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoVII && trans.SubvencionesActividadesAnexoVII.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo VII - {{ trans.NombreAnexoVII }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoVII[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoVIII && trans.SubvencionesActividadesAnexoVIII.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo VIII - {{ trans.NombreAnexoVIII }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoVIII[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoIX && trans.SubvencionesActividadesAnexoIX.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo IX - {{ trans.NombreAnexoIX }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoIX[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col" *ngIf="trans.SubvencionesActividadesAnexoX && trans.SubvencionesActividadesAnexoX.length > 0">
-                            <div class="card h-100">
-                                <div class="card-body center">
-                                    <h5 class="card-title">Anexo X - {{ trans.NombreAnexoX }}</h5>
-                                    <button class="anexo-boton" (click)="showDocument(trans.SubvencionesActividadesAnexoX[0].url)">
-                                        <i class="bi bi-filetype-pdf"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>                   
                 </div>
 

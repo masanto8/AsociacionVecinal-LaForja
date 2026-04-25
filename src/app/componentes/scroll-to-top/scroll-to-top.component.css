@@ -1,10 +1,8 @@
 
 
 #scrollToTopBtn {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 92%;
-    bottom: 25px;
+    position: fixed; 
+    right: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +16,7 @@
     z-index: 1000;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     pointer-events: none; /* No permite clics cuando está oculto */
-    margin-bottom: 3%;
+    margin-bottom: 2%;
 }
 
 #scrollToTopBtn i {
@@ -36,6 +34,11 @@
     opacity: 1; /* Visible cuando se pasa de 100px */
     pointer-events: auto; /* Reactivamos los clics */
      /* Asegura la posición */
+}
+
+/* Cuando el footer aparece */
+#scrollToTopBtn.with-footer {
+    bottom: 120px; /* ajusta según altura del footer */
 }
   
 #scrollToTopBtn.hidden {

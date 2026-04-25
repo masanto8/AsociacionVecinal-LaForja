@@ -13,10 +13,13 @@
 }
 
 .circulo{
+    display: flex;
     border-radius: 50%;
     border: 3px outset rgba(17, 157, 164);
     width: 45px;
     height: 45px;
+    min-width: 45px;
+    min-height: 45px;
 }
 
 .color-letra-azul{
@@ -75,7 +78,6 @@
 .card-title{
     margin-left: 10px;
     text-align: left;
-    
     width: auto;
 }
 
@@ -85,6 +87,126 @@
     margin-top: 3%;
 }
 
+.carousel{
+    margin: 4% auto;
+    padding: 20px 0;
+    max-width: 80%;
+    overflow: hidden;
+    display: flex;
+    > * {
+        flex: 0 0 100%;
+    }
+    &:hover .group {
+        animation-play-state: paused;
+    }
+}
+
+/*.tarjeta{
+    width: 100%;
+    color: white;
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+    padding: 20px;
+    font-size: xx-large;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    min-width: 250px;
+}*/
+.tarjeta {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    min-width: 250px;
+    border-radius: 24px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 20px;
+    font-size: xx-large;
+
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.tarjeta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.contenido {
+    position: relative;
+    z-index: 2;    
+}
+
+.contenido_des{
+    display: flex;
+    align-items: center;
+    height: 75%;
+    width: 80%;
+    margin: auto;
+}
+
+.group {
+    display: flex;
+    gap: 30px;
+    padding-right: 30px;
+    will-change: transform;
+    animation: scroll 15s linear infinite;
+}
+
+.descripcion {
+    opacity: 0;
+    transform: translateY(10px);
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.transporte {
+    background-image: url('/assets/imagenes/autobus.jpg');
+}
+
+.sanidad {
+    background-image: url('/assets/imagenes/sanidad.jpg');
+}
+
+.urbanismo {
+    background-image: url('/assets/imagenes/urbanismo.jpg');
+}
+
+.cultura {
+    background-image: url('/assets/imagenes/cultura.jpg');
+}
+
+.educacion {
+    background-image: url('/assets/imagenes/libros.jpg');
+}
+
+.tarjeta:hover::before {
+    background: rgba(0,0,0,0.6);
+}
+
+.tarjeta:hover .descripcion {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
 
 
 @media only screen and (max-width: 1050px) {
@@ -92,14 +214,36 @@
         padding-left: 7%;
         padding-right: 7%;
     }
+
+    .tarjeta{
+         min-height: 250px;
+        min-width: 200px;
+        font-size: x-large;
+    }
 }
 
 @media only screen and (max-width: 767px) {
     .circulo{
         height: 42px;
         width: 42px;
+        min-width: 42px;
+        min-height: 42px;
     }
     
+    .carousel{
+        max-width: 85%;
+    }
+
+    .tarjeta{
+        min-height: 200px;
+        min-width: 170px;
+        font-size: x-large;
+    }
+
+    .contenido_des{
+        height: 70%;
+        width: 85%;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -107,11 +251,23 @@
         padding-left: 5%;
         padding-right: 5%;
     }
+
+    .carousel{
+        max-width: 90%;
+    }
+
+    .tarjeta{
+        min-height: 170px;
+        min-width: 140px;
+        font-size: medium;
+    }
 }
 
 @media only screen and (max-width: 360px) {
-    .titulo-tarjeta{
-
-        justify-content: start;
+    .circulo{
+        height: 38px;
+        width: 38px;
+        min-width: 38px;
+        min-height: 38px;
     }
 }

@@ -9,7 +9,7 @@
                 <div class="card h-100 shadow-box-blue">
                     <div class="card-body center">
                         <div class="titulo-tarjeta">
-                            <h2 class="circulo">1</h2>
+                            <h2 class="circulo center">1</h2>
                             <h4 class="card-title">Trasládanos tu problema</h4>
                         </div>
                         <p>Cualquier persona puede ponerse en contacto con nosotros a través del correo de la asociación 
@@ -21,7 +21,7 @@
                 <div class="card h-100 shadow-box-blue">
                     <div class="card-body center">
                         <div class="titulo-tarjeta">
-                            <h2 class="circulo">2</h2>
+                            <h2 class="circulo center">2</h2>
                             <h4 class="card-title">Abordar dicho problema</h4>
                         </div>
                         <p>Una vez nos haceis llegar una queja o problema del municipio, evaluamos cómo incidir en él para que tenga una buena solución.</p>  
@@ -32,7 +32,7 @@
                 <div class="card h-100 shadow-box-blue">
                     <div class="card-body center">
                         <div class="titulo-tarjeta">
-                            <h2 class="circulo">3</h2>
+                            <h2 class="circulo center">3</h2>
                             <h4 class="card-title">Trabajarlo a fondo</h4>
                         </div>
                         <p>Dependiendo del tipo de problema que nos trasladéis, puede necesitar más o menos tiempo de dedicación.</p> 
@@ -44,7 +44,7 @@
                 <div class="card h-100 shadow-box-blue">
                     <div class="card-body center">
                         <div class="titulo-tarjeta">
-                            <h2 class="circulo">4</h2>
+                            <h2 class="circulo center">4</h2>
                             <h4 class="card-title">Nuestros avances</h4>
                         </div>
                         <p>Desde la asociación mantendremos el contacto con aquellos que nos trasladen sus problemas, 
@@ -59,58 +59,52 @@
         </div>
     </div>
 
+    
     <div class="titulo center bk-color-mostaza">
-        <h1 class="">Temas principales</h1>
-        <div class="row row-cols-1 row-cols-md-2 g-4 trajetas-trabajo contenido-novedades">
-            <div class="col">
-                <div class="card h-100 shadow-box">
-                    <div class="card-body center">
-                        <div class="titulo-tarjeta">
-                            <h2 class="circulo">1</h2>
-                            <h4 class="card-title">Trasládanos tu problema</h4>
-                        </div>
-                        <p>Cualquier persona puede ponerse en contacto con nosotros a través del correo de la asociación 
-                            o en persona en nuestro local.</p>
+        <h1 class="">Temas principales</h1>  
+        <div class="carousel">
+
+            <div class="group" #group>
+
+                <!-- BLOQUE COMPLETO -->
+                <ng-container *ngFor="let _ of [1,2]">
+
+                <!-- img1 -->
+                <div class="tarjeta"
+                    *ngFor="let tema of temas"
+                    [ngStyle]="{
+                        'background-image': 'url(' + tema.img1 + ')'
+                    }">
+
+                    <div class="contenido">
+                        <h3 class="mt-4">{{ tema.titulo }}</h3>
+                        <div class="contenido_des">
+                            <p class="descripcion">{{ tema.desc }}</p>
+                        </div> 
                     </div>
+
                 </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow-box">
-                    <div class="card-body center">
-                        <div class="titulo-tarjeta">
-                            <h2 class="circulo">2</h2>
-                            <h4 class="card-title">Abordar dicho problema</h4>
-                        </div>
-                        <p>Una vez nos haceis llegar una queja o problema del municipio, evaluamos cómo incidir en él para que tenga una buena solución.</p>  
+
+                <!-- img2 -->
+                <div class="tarjeta"
+                    *ngFor="let tema of temas"
+                    [ngStyle]="{
+                        'background-image': 'url(' + tema.img2 + ')'
+                    }">
+
+                    <div class="contenido">
+                        <h3 class="mt-4">{{ tema.titulo }}</h3>
+                        <div class="contenido_des">
+                            <p class="descripcion">{{ tema.desc }}</p>
+                        </div> 
                     </div>
+
                 </div>
+
+                </ng-container>
+
             </div>
-            <div class="col">
-                <div class="card h-100 shadow-box">
-                    <div class="card-body center">
-                        <div class="titulo-tarjeta">
-                            <h2 class="circulo">3</h2>
-                            <h4 class="card-title">Trabajarlo a fondo</h4>
-                        </div>
-                        <p>Dependiendo del tipo de problema que nos trasladéis, puede necesitar más o menos tiempo de dedicación.</p> 
-                        <p>Reuniones, plenos del Ayuntamiento, escritos de prensa...</p> 
-                    </div>
-                </div>
             </div>
-            <div class="col">
-                <div class="card h-100 shadow-box">
-                    <div class="card-body center">
-                        <div class="titulo-tarjeta">
-                            <h2 class="circulo">4</h2>
-                            <h4 class="card-title">Nuestros avances</h4>
-                        </div>
-                        <p>Desde la asociación mantendremos el contacto con aquellos que nos trasladen sus problemas, 
-                            pero podréis ir revisando nuestros avances desde la página de Novedades, así como en redes sociales,
-                             donde iremos publicándo las reuniones y los avances que logremos.</p>  
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class=" titulo center ">

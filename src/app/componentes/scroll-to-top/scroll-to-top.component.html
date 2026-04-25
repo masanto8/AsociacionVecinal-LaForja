@@ -1,11 +1,10 @@
-
-    <button *ngIf="visible" 
-        id="scrollToTopBtn"  
-        [class.visible]="visible" 
-        (click)="scrollToTop()">
-            <i class="bi bi-arrow-up-circle-fill"></i>
-    </button>
-
+<button *ngIf="visible"
+  id="scrollToTopBtn"
+  [class.visible]="visible"
+  [style.bottom.px]="buttonBottom"
+  (click)="scrollToTop()">
+  <i class="bi bi-arrow-up-circle-fill"></i>
+</button>
 
 
 
