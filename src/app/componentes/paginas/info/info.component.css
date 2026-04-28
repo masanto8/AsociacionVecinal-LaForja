@@ -1,3 +1,7 @@
+.body-info{
+    background-color: white;
+}
+
 .titulo{
     margin-top: 5%;
 }
@@ -96,7 +100,7 @@
     margin-bottom: 4%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
-    background-color: #f4f4f4d2;
+    background-color: #f4f4f491;
     
 }
 
@@ -111,19 +115,19 @@
 }
 
 .linea-azul {
-    background-color: blue;
+    background-color: rgba(17, 157, 164, 1);
 }
 
-.linea-roja {
-    background-color: red;
+.linea-naranja {
+    background-color: rgba(248, 190, 45, 1);
 }
 
 .linea-verde {
     background-color: rgb(150, 223, 42);
 }
 
-.linea-amarilla {
-    background-color: yellow;
+.linea-morado {
+    background-color: rgba(102, 0, 161, 1);
 }
 
 
@@ -205,6 +209,17 @@
   
 .enlace:hover {
     color: #0056b3;
+}
+
+.no-resultados {
+    text-align: center;
+    color: black;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 @media only screen and (max-width: 1120px) {

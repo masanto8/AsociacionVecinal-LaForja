@@ -23,7 +23,7 @@
     },
     "Vicepresidente": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Secretaria": {
       "type": "string",

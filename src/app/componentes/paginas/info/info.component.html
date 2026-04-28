@@ -1,24 +1,25 @@
-<div>
+<div class="body-info">
     <div class="titulo center">
         <h1>ÚLTIMAS NOVEDADES</h1>
     </div>
     <div class="contenido-novedades">
         <div class="columnas">
             <form class=" buscador" role="search" >
-                <input class="form-search" type="search" placeholder="Buscador de novedades..." aria-label="Search" 
-                name="searchTerm" > 
+                <input class="form-search" type="search" placeholder="Buscador de novedades..." [(ngModel)]="searchTerm"
+                (ngModelChange)="onSearchTermChange()"aria-label="Search" name="searchTerm" > 
             </form>
 
             <div class="contenedor-botones">
-                <button class="botones boton-orden">
-                    <i class="bi bi-sort-down-alt"></i> Ordenar
+                <button class="botones boton-orden" (click)="toggleSort()">
+                    <i class="bi" [ngClass]="sortOrder === 'desc' ? 'bi-sort-down-alt' : 'bi-sort-up'"></i>
+                    Ordenar
                 </button>
-                <div class="dropdown">
-                    <button class="botones boton-filtro" (click)="toggleDropdown()">
+                <div class="dropdown" #dropdownRef>
+                    <button class="botones boton-filtro" (click)="toggleDropdown($event)">
                         <i class="bi bi-funnel-fill"></i> Filtrar
                     </button>
         
-                    <div class="dropdown-menu" [class.show]="isDropdownOpen">
+                    <div class="dropdown-menu" [class.show]="isDropdownOpen" (click)="$event.stopPropagation()">
                         <div>
                         <input
                             type="checkbox"
@@ -42,8 +43,7 @@
                 </div>
                 
             </div> 
-        </div>
-    
+        </div> 
 
         <div class="section">
             <ng-container *ngIf="filteredNovedades && filteredNovedades.length > 0">
@@ -55,18 +55,22 @@
                             <div class="linea linea-arriba-derecha" [ngClass]="getCardClass(novedades.Tipo)"></div>
                             <div class="linea linea-abajo-izquierda" [ngClass]="getCardClass(novedades.Tipo)"></div>
                             <h3 class="nombre-taller font-text">{{ novedades.Titulo }}</h3>
-                            <P [innerHTML]="novedades.ContenidoResumido"></P>
                             <P [innerHTML]="novedades.Contenido"></P>
                             <a href="{{ novedades.EnlaceExterno }}" target="_blank" rel="noopener noreferrer" class="enlace">Enlace Externo</a>
                             <img *ngIf="novedades?.Multimedia?.length > 0" [src]="BASE_URL + (novedades.Multimedia[0].url)" alt="{{ novedades.Titulo }}" class="taller-imagen" />
                         </div>
-                    </div>        
+                    </div>    
                 </ng-container>
             </ng-container>
+            <p *ngIf="novedades.length === 0" class="no-resultados">
+                No hay novedades disponibles
+            </p>
+
+            <p *ngIf="novedades.length > 0 && filteredNovedades.length === 0" class="no-resultados">
+                No hay resultados con los filtros actuales
+            </p>
         </div>
     </div>
-    
-    
 </div>
 
 

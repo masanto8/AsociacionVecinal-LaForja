@@ -501,7 +501,7 @@ export interface ApiJuntaJunta extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     Presidente: Schema.Attribute.String & Schema.Attribute.Required;
-    Vicepresidente: Schema.Attribute.String & Schema.Attribute.Required;
+    Vicepresidente: Schema.Attribute.String;
     Secretaria: Schema.Attribute.String & Schema.Attribute.Required;
     Tesoreria: Schema.Attribute.String & Schema.Attribute.Required;
     Vocal1: Schema.Attribute.String;
@@ -544,14 +544,10 @@ export interface ApiNovedadNovedad extends Struct.CollectionTypeSchema {
       true
     >;
     Tipo: Schema.Attribute.Enumeration<
-      ['Noticia', 'Evento', 'Junta', 'Reunion']
+      ['Noticia', 'Evento', 'Junta', 'Reuni\u00F3n', 'Otro']
     > &
       Schema.Attribute.Required;
     Contenido: Schema.Attribute.RichText & Schema.Attribute.Required;
-    ContenidoResumido: Schema.Attribute.RichText &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 600;
-      }>;
     EnlaceExterno: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

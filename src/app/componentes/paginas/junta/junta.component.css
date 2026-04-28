@@ -11,7 +11,7 @@
 
 .table{
     margin-top: 6%;
-    margin-bottom: 25%;
+    margin-bottom: 12%;
 }
 
 .year{
@@ -41,6 +41,7 @@ select{
 @media only screen and (max-width: 768px) {
     .table{
         margin-top: 20px;
+        margin-bottom: 20%;
     }   
 }
 
@@ -49,4 +50,9 @@ select{
         width: 80%;
         margin-left: 10%; 
     }
+
+    .table{
+        margin-top: 25px;
+        margin-bottom: 25%;
+    }  
 }

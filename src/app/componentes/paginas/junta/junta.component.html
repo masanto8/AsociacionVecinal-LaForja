@@ -23,11 +23,11 @@
                 <ng-container *ngIf="filteredJunta && filteredJunta.length > 0">
                     <ng-container *ngFor="let miembro of filteredJunta">
                         <tr>
-                            <td class="center-vert">Presidente</td>
+                            <td class="center-vert">Presidencia</td>
                             <td class="center-vert">{{ miembro.Presidente }}</td>
                         </tr>
-                        <tr>     
-                            <td class="center-vert">Vicepresidente</td>
+                         <tr *ngIf="miembro.Vicepresidente">
+                            <td class="center-vert">Vicepresidencia</td>
                             <td class="center-vert">{{ miembro.Vicepresidente }}</td>
                         </tr>
                         <tr>
@@ -38,37 +38,14 @@
                             <td class="center-vert">Tesorería</td>
                             <td class="center-vert">{{ miembro.Tesoreria }}</td>
                         </tr>
-                        <tr>
-                            <td class="center-vert" rowspan="10">Vocalías</td>
-                            <td class="center-vert">{{ miembro.Vocal1 }}</td>
-                        </tr>
-                        <tr>
-                            <td class="center-vert">{{ miembro.Vocal2 }}</td>
-                        </tr>
-                        <tr>
-                            <td class="center-vert">{{ miembro.Vocal3 }}</td>
-                        </tr>
-                        <tr> 
-                            <td class="center-vert">{{ miembro.Vocal4 }}</td>
-                        </tr>
-                        <tr> 
-                            <td class="center-vert">{{ miembro.Vocal5 }}</td>
-                        </tr>
-                        <tr> 
-                            <td class="center-vert">{{ miembro.Vocal6 }}</td>
-                        </tr>
-                        <tr>
-                            <td class="center-vert">{{ miembro.Vocal7 }}</td>
-                        </tr>
-                        <tr>
-                            <td class="center-vert">{{ miembro.Vocal8 }}</td>
-                        </tr>
-                        <tr>
-                            <td class="center-vert">{{ miembro.Vocal9 }}</td>
-                        </tr>
-                        <tr>
-                            <td class="center-vert">{{ miembro.Vocal10 }}</td>
-                        </tr>
+                        <ng-container *ngIf="getVocales(miembro).length > 0">
+                            <tr *ngFor="let vocal of getVocales(miembro); let i = index">
+                                <td class="center-vert" *ngIf="i === 0" [attr.rowspan]="getVocales(miembro).length">
+                                    Vocalías
+                                </td>
+                                <td class="center-vert">{{ vocal }}</td>
+                            </tr>
+                        </ng-container>
                     </ng-container>
                 </ng-container>
             </tbody>

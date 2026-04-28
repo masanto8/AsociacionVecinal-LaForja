@@ -1,7 +1,6 @@
 <app-carrusel></app-carrusel>
 
 <div>
-
     <div class=" titulo center section">
         <h1 class="color-letra-azul">¿Cómo trabajamos?</h1>
         <div class="row row-cols-1 row-cols-md-2 g-4 trajetas-trabajo contenido-novedades">
@@ -58,53 +57,48 @@
             <button class="buton buton-azul" href="asociacion" routerLink="/asociacion">Contáctanos</button>
         </div>
     </div>
-
     
     <div class="titulo center bk-color-mostaza">
         <h1 class="">Temas principales</h1>  
         <div class="carousel">
-
             <div class="group" #group>
-
-                <!-- BLOQUE COMPLETO -->
                 <ng-container *ngFor="let _ of [1,2]">
 
-                <!-- img1 -->
-                <div class="tarjeta"
-                    *ngFor="let tema of temas"
-                    [ngStyle]="{
-                        'background-image': 'url(' + tema.img1 + ')'
-                    }">
+                    <!-- img1 -->
+                    <div class="tarjeta"
+                        *ngFor="let tema of temas"
+                        [ngStyle]="{
+                            'background-image': 'url(' + tema.img1 + ')'
+                        }">
 
-                    <div class="contenido">
-                        <h3 class="mt-4">{{ tema.titulo }}</h3>
-                        <div class="contenido_des">
-                            <p class="descripcion">{{ tema.desc }}</p>
-                        </div> 
+                        <div class="contenido">
+                            <h3 class="mt-4">{{ tema.titulo }}</h3>
+                            <div class="contenido_des">
+                                <p class="descripcion">{{ tema.desc }}</p>
+                            </div> 
+                        </div>
+
                     </div>
 
-                </div>
+                    <!-- img2 -->
+                    <div class="tarjeta"
+                        *ngFor="let tema of temas"
+                        [ngStyle]="{
+                            'background-image': 'url(' + tema.img2 + ')'
+                        }">
 
-                <!-- img2 -->
-                <div class="tarjeta"
-                    *ngFor="let tema of temas"
-                    [ngStyle]="{
-                        'background-image': 'url(' + tema.img2 + ')'
-                    }">
+                        <div class="contenido">
+                            <h3 class="mt-4">{{ tema.titulo }}</h3>
+                            <div class="contenido_des">
+                                <p class="descripcion">{{ tema.desc }}</p>
+                            </div> 
+                        </div>
 
-                    <div class="contenido">
-                        <h3 class="mt-4">{{ tema.titulo }}</h3>
-                        <div class="contenido_des">
-                            <p class="descripcion">{{ tema.desc }}</p>
-                        </div> 
                     </div>
-
-                </div>
-
                 </ng-container>
 
             </div>
-            </div>
+        </div>
     </div>
 
     <div class=" titulo center ">
@@ -146,8 +140,8 @@
                         <div class="titulo-tarjeta">
                             <h4 class="card-title">Junta</h4>
                         </div>
-                        <p>Nos reunimos semanalmente para tratar todos los temas que nos traladais a la Asociación, 
-                            así como para informar a otros miembros de los avances y reuniones que se han realizado durante la semana.</p>  
+                        <p>Nos reunimos normalmente cada dos semanas para tratar todos los temas que nos traladais a la Asociación, 
+                            así como para informar a otros miembros de los avances y reuniones que se han realizado durante ese tiempo.</p>  
                     </div>
                 </div>
             </div>
@@ -156,10 +150,7 @@
             <button class="buton buton-morado" href="novedades" routerLink="/novedades">Ver Novedades</button>
         </div>
     </div>
-
-    
-    
+ 
 </div>
-
 
 <app-scroll-to-top></app-scroll-to-top>

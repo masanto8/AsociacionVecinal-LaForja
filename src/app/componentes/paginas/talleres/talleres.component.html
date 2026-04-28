@@ -1,28 +1,45 @@
 <div class="color-bkg">
-    <div class="titulo center">
-        <h1 class="font-text text-white">Talleres</h1>
-        <div class="year text-white">
-            <label  class="mr-2" for="yearSelect">Año: </label>
-            <app-selector
-                [options]="availableYears"
-                [selected]="selectedYear"
-                (selectionChange)="onYearChange($event)">
-            </app-selector>
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="contenido-wrapper">
+        <div class="titulo center">
+            <h1 class="font-text text-white">Talleres</h1>
+            <div class="year text-white">
+                <label  class="mr-2" for="yearSelect">Año: </label>
+                <app-selector
+                    [options]="availableYears"
+                    [selected]="selectedYear"
+                    (selectionChange)="onYearChange($event)">
+                </app-selector>
+            </div>
         </div>
-    </div>
-    <div class="row row-cols-1 row-cols-lg-2  contenido-talleres section">
-        <ng-container *ngIf="filteredTaller.length > 0">
-            <ng-container *ngFor="let taller of filteredTaller">
-                <div class="col">
-                    <div class="taller-card">
-                        <img [src]="BASE_URL + (taller.Cartel[0].url)" alt="{{ taller.NombreTaller }}" class="taller-imagen" 
-                        [class.visible]="imageLoaded" (load)="onImageLoad()"/>
-                        <h3 class="nombre-taller font-text">{{ taller.NombreTaller }}</h3>
+        <div class="row row-cols-1 row-cols-lg-2  contenido-talleres section">
+            <ng-container *ngIf="filteredTaller.length > 0">
+                <ng-container *ngFor="let taller of filteredTaller">
+                    <div class="col">
+                        <div class="taller-card">
+                            <img [src]="BASE_URL + (taller.Cartel[0].url)" alt="{{ taller.NombreTaller }}" class="taller-imagen" 
+                            [class.visible]="imageLoaded" (load)="onImageLoad()"/>
+                            <h3 class="nombre-taller font-text2">{{ taller.NombreTaller }}</h3>
+                        </div>
                     </div>
-                </div>
-                
+                    
+                </ng-container>
             </ng-container>
-        </ng-container>
+        </div>
+        <app-scroll-to-top></app-scroll-to-top>
     </div>
-    <app-scroll-to-top></app-scroll-to-top>
 </div>

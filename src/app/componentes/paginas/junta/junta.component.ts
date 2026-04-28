@@ -33,6 +33,20 @@ export class JuntaComponent implements OnInit{
 
   constructor(private http: HttpClient) {}
 
+  getVocales(miembro: Junta): string[] {
+    return [
+      miembro.Vocal1,
+      miembro.Vocal2,
+      miembro.Vocal3,
+      miembro.Vocal4,
+      miembro.Vocal5,
+      miembro.Vocal6,
+      miembro.Vocal7,
+      miembro.Vocal8,
+      miembro.Vocal9,
+      miembro.Vocal10
+    ].filter(v => v); // elimina null, undefined o ''
+  }
 
   ngOnInit(): void {
     this.fetchJuntaData();

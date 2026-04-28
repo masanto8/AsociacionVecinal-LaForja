@@ -9,8 +9,8 @@
     background-color: black; 
     border: none;
     border-radius: 50%; /* Forma circular */
-    width: 58px; /* Tamaño del círculo */
-    height: 56px;
+    width: 56px; /* Tamaño del círculo */
+    height: 54px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.514); /* Sombra para resaltarlo */
     cursor: pointer;
     z-index: 1000;
@@ -57,8 +57,8 @@
 @media only screen and (max-width: 870px) {
     #scrollToTopBtn {
         left: 90%;
-        width: 48px; /* Tamaño del círculo */
-        height: 46px;
+        width: 46px; /* Tamaño del círculo */
+        height: 44px;
         bottom: 30px;
     }
     
@@ -77,8 +77,8 @@
 @media only screen and (max-width: 565px) {
     #scrollToTopBtn {
         left: 88%;
-        width: 38px; /* Tamaño del círculo */
-        height: 36px;
+        width: 36px; /* Tamaño del círculo */
+        height: 34px;
         bottom: 30px;
     }
     

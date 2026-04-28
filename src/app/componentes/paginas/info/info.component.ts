@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 
 interface Novedades {
   Titulo: string;
   Tipo: string;
-  Multimedia : any;
+  Multimedia?: any;
   EnlaceExterno?: string;
   Contenido: string;
-  ContenidoResumido?: string;
 }
 
 @Component({
@@ -19,21 +18,31 @@ interface Novedades {
 })
 export class InfoComponent implements OnInit{
   novedades: Novedades[] = [];
-  tipos: string[] = ['Noticia', 'Evento', 'Junta', 'Reunion'];
+  tipos: string[] = ['Noticia', 'Evento', 'Junta', 'Reunión', 'Otro'];
   selectedNovedad: string = '';
   searchTerm: string = '';
   BASE_URL = 'http://localhost:1337';
   selectedTipos: string[] = []; // Almacena los tipos seleccionados
   isDropdownOpen: boolean = false;
+  sortOrder: 'desc' | 'asc' = 'desc';
   
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private eRef: ElementRef) {}
+
+  @ViewChild('dropdownRef') dropdownRef!: ElementRef;
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: Event) {
+    if (this.dropdownRef && !this.dropdownRef.nativeElement.contains(event.target)) {
+      this.isDropdownOpen = false;
+    }
+  }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:1337/api/novedades?populate=*')
+    this.selectedTipos = [...this.tipos];
+
+    this.http.get('http://localhost:1337/api/novedades?populate=*&sort=updatedAt:desc')
       .subscribe({
         next: (data: any) => {         
           this.novedades = data?.data || []; 
-          console.log(this.novedades);
         },
         error: (error) => {
           console.error('Error fetching data from Strapi:', error);
@@ -42,36 +51,67 @@ export class InfoComponent implements OnInit{
   }
 
   get filteredNovedades(): Novedades[] {
-    return this.novedades.filter(novedades => {
-      const matchesNovedad = this.selectedNovedad ? novedades.Tipo === this.selectedNovedad : true;
-      const matchesSearchTerm = this.searchTerm ? 
-        (novedades.Titulo.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        novedades.Contenido.toLowerCase().includes(this.searchTerm.toLowerCase())) : true;
-      return matchesNovedad && matchesSearchTerm;
+    let result = this.novedades.filter(novedades => {
+      const matchesTipo = this.selectedTipos.includes(novedades.Tipo);
+
+      const matchesSearchTerm = this.searchTerm? (
+          novedades.Titulo.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          this.stripHtml(novedades.Contenido).toLowerCase().includes(this.searchTerm.toLowerCase())
+        )
+      : true;
+
+      return matchesTipo && matchesSearchTerm;
     });
+
+    // Aplica orden después de filtrar
+    result = result.sort((a: any, b: any) => {
+      const dateA = new Date(a.updatedAt).getTime();
+      const dateB = new Date(b.updatedAt).getTime();
+
+      return this.sortOrder === 'desc'
+        ? dateB - dateA
+        : dateA - dateB;
+    });
+
+    return result;
   }
 
+  stripHtml(html: string): string {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    return div.textContent || div.innerText || '';
+  }
+  
   onSearchTermChange(): void {
     this.selectedNovedad = '';
   }
 
-  toggleDropdown(): void {
+  toggleDropdown(event: Event): void {
+    event.stopPropagation();
     this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  toggleSort(): void {
+    this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
   }
 
   // Maneja los cambios en los checkboxes
   onCheckboxChange(event: Event): void {
     const target = event.target as HTMLInputElement;
+
     if (target.checked) {
-      this.selectedTipos.push(target.value);
+      if (!this.selectedTipos.includes(target.value)) {
+        this.selectedTipos.push(target.value);
+      }
     } else {
-      this.selectedTipos = this.selectedTipos.filter((tipo) => tipo !== target.value);
+      this.selectedTipos = this.selectedTipos.filter(tipo => tipo !== target.value);
     }
   }
 
   // Marca o desmarca todas las opciones
   selectAll(event: Event): void {
     const target = event.target as HTMLInputElement;
+
     if (target.checked) {
       this.selectedTipos = [...this.tipos];
     } else {
@@ -89,11 +129,13 @@ export class InfoComponent implements OnInit{
       case 'Noticia':
         return 'linea-azul';
       case 'Evento':
-        return 'linea-roja';
+        return 'linea-naranja';
       case 'Junta':
-        return 'linea-amarilla';
-      case 'Reunion':
+        return 'linea-morado';
+      case 'Reunión':
         return 'linea-verde';
+      case 'Otro':
+        return 'linea-azul';
       default:
         return 'linea-azul';
     }

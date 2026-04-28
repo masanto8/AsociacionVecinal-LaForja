@@ -33,17 +33,14 @@
         "Noticia",
         "Evento",
         "Junta",
-        "Reunion"
+        "Reunión",
+        "Otro"
       ],
       "required": true
     },
     "Contenido": {
       "type": "richtext",
       "required": true
-    },
-    "ContenidoResumido": {
-      "type": "richtext",
-      "maxLength": 600
     },
     "EnlaceExterno": {
       "type": "string"

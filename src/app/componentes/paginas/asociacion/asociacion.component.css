@@ -106,13 +106,14 @@
 
 .fondo-historia-container {
     position: relative;
-    background-image: url('/assets/imagenes/Fondo-azul.png'); /* Imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
-    background-position: center; /* Centra la imagen */
+    background-image: url('/assets/imagenes/Fondo-azul.png');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding-top: 40px; 
-    padding-bottom: 100px;/* Espaciado vertical para la sección */
+    padding-bottom: 100px;
     width: 100%;
+    margin-bottom: 10%;
 }
 
 .container-historia{
